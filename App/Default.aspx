@@ -3,7 +3,14 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" Runat="Server">
     <div class="jumbotron banner">
         <h1>Op zoek naar een straat?</h1>
-        <input type="text" id="search" name="search" placeholder="Vul een adres in..." />
+        <div class="field_container">
+            <input type="text" id="search" name="search" placeholder="Vul een adres in..." />
+            <div class="btn_container">
+                <button class="search_btn">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+            </div>
+        </div>
     </div>
 </asp:Content>
 
