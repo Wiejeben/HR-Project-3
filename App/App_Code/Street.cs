@@ -32,6 +32,6 @@ public class Street : Location, DataObject
 
     public DataObject Get(int id)
     {
-        throw new NotImplementedException();
+        return new Street(0,"","","",new Vector2(0,0),false);
     }
 }
