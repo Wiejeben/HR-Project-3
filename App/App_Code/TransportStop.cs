@@ -6,7 +6,7 @@ using System.Web;
 public class TransportStop : Location, DataObject
 {
     public string Name;
-    public Vector2 Pos { get; }
+    public Vector2 Pos { get; set; }
 
     public TransportStop(string name, Vector2 pos)
     {

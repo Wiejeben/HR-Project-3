@@ -5,7 +5,7 @@ using System.Web;
 
 public class VacantBuilding : Location, DataObject
 {
-    public Vector2 Pos { get; }
+    public Vector2 Pos { get; set; }
     string Type;
     string Status;
     string Owner;
