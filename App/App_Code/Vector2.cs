@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Summary description for Vector2
-/// </summary>
 public class Vector2
 {
     double X;

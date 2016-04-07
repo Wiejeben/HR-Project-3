@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Summary description for Street
-/// </summary>
 public class Street : Location, DataObject
 {
     public int ID;
