@@ -7,7 +7,7 @@ public class Street : Location, DataObject
 {
     public int ID;
     public string Name, Intro, Content;
-    public Vector2 Pos { get; set; }
+    public Vector2 Pos { get; }
     public bool Exists;
 
     public Street(int id, string name, string intro, string content, Vector2 pos, bool exists)
