@@ -3,6 +3,46 @@
     margin-top:80px;
 }
 
+.m0 {
+    margin:0;
+}
+
+.search_result {
+     margin:0 0 10px 0;
+}
+
+.search_container {
+    width:100%;
+    height:100%;
+    border:1px solid #ddd;
+    padding:30px 20px;
+    color:#000000;
+    display:block;
+    text-decoration:none;
+    border-radius:6px;
+    position:relative;
+}
+
+.search_container h2 {
+    margin:0;
+}
+
+.search_container .glyphicon {
+    position:absolute;
+    right:30px;
+    top:50%;
+    margin-top:-7px;
+}
+
+.search_container:hover {
+    -webkit-transition: all 500ms ease-out 0.1s;
+    -moz-transition: all 500ms ease-out 0.1s;
+    -o-transition: all 500ms ease-out 0.1s;
+    transition: all 500ms ease-out 0.1s;
+    text-decoration:none;
+    border-color:#000000;
+}
+
 /* Homepage */
 .banner h1 {
     font-size:31px;
