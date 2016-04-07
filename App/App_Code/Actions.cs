@@ -13,7 +13,7 @@ public class Actions
     public static int getDistance(Location pos1, Location pos2) {
         {
             //unfinished
-            return 0;
+            return 69;
         }
     }
 }
