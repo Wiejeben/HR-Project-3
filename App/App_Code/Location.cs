@@ -5,5 +5,5 @@ using System.Web;
 
 interface Location
 {
-    Vector2 Pos
+    Vector2 Pos { get; }
 }
