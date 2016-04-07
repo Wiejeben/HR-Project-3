@@ -12,6 +12,9 @@
     <link href="~/include/css/house.css" rel="stylesheet" type="text/css" />
     <link href="~/include/css/base.css" rel="stylesheet" type="text/css" />
 
+    <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+    <script src="/include/js/gmap.js"></script>
+
 </head>
 <body>
     <form runat="server">
