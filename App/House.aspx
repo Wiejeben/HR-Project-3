@@ -4,18 +4,20 @@
     <h1><%= houseName %></h1>
     <div class="row">
         <div class="col-md-4">
-            Map hier.
+            <div class="map">
+
+            </div>
         </div>
         <div class="col-md-8">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <td>#</td>
-                        <td>Name</td>
-                        <td>Latitude</td>
-                        <td>Longitude</td>
-                        <td>Exists since</td>
-                        <td>Timespan</td>
+                        <td>Naam</td>
+                        <td>Breedtegraad</td>
+                        <td>Lengtegraad</td>
+                        <td>Bestaat sinds</td>
+                        <td>Tijdspanne</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,7 +32,7 @@
                 </tbody>
             </table>
             <div class="house_content">
-                <h2>Intro</h2>
+                <h2>Introductie</h2>
                 <p><%= houseIntro %></p>
                 <h2>Geschiedenis</h2>
                 <p><%= houseContent %></p>
