@@ -2,7 +2,6 @@
 # Created by https://www.gitignore.io/api/xamarinstudio,visualstudio,visualstudiocode
 
 ### XamarinStudio ###
-bin/
 obj/
 *.userprefs
 
