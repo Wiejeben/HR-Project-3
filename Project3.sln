@@ -1,9 +1,8 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Project 3", "App\", "{1FF7FEDA-F8D1-4B95-9CB2-B4A72B6B9922}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "App", "App\", "{1FF7FEDA-F8D1-4B95-9CB2-B4A72B6B9922}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_52272"
@@ -21,6 +20,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Project 3", "App\", "{1FF7F
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "52272"
+		SlnRelativePath = "App\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
