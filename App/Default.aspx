@@ -12,7 +12,6 @@
                     </button>
                 </div>
             </form>
-            <%= abc %>
         </div>
     </div>
 </asp:Content>

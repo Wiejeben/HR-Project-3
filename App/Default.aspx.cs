@@ -8,7 +8,6 @@ using System.Web.UI.WebControls;
 public partial class _Default : System.Web.UI.Page
 {
     public string query;
-    public string abc;
 
     protected void Page_Load(object sender, EventArgs e)
     {
