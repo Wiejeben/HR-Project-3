@@ -35,7 +35,7 @@ $(document).ready(function () {
                 center: latlng
             }
 
-            map = new google.maps.Map($('#map'), mapOptions);
+            map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
             var marker = new google.maps.Marker({
                 position: latlng,
@@ -48,9 +48,11 @@ $(document).ready(function () {
     }
 
     // Bar graph
-    var ctx = $("canvas").get(0).getContext("2d");
-    window.myBar = new Chart(ctx).Bar(barChartData, {
-        responsive: false
-    });
+    if ($("#chart").length) {
+        var ctx = $("#chart").get(0).getContext("2d");
+        window.myBar = new Chart(ctx).Bar(barChartData, {
+            responsive: false
+        });
+    }
 
 });
