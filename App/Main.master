@@ -24,7 +24,7 @@
             <div class="navbar-collapse navbar-left collapse">
                 <ul class="nav navbar-nav">
                     <li><a runat="server" href="~/">Home</a></li>
-                    <%--<li><a runat="server" href="~/Stats.aspx">Stats</a></li>--%>
+                    <li><a runat="server" href="~/Charts.aspx">Charts</a></li>
                 </ul>
             </div>
             <% if (Request.Url.PathAndQuery != "/Default.aspx"){ %>

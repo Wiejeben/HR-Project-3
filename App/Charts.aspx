@@ -4,6 +4,6 @@
     <h1>Charts</h1>
 
     <div class="chart">
-        <canvas id="canvas" height="450" width="600"></canvas>
+        <canvas id="chart" height="450" width="600"></canvas>
     </div>
 </asp:Content>

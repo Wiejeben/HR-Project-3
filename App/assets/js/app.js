@@ -24,7 +24,7 @@ var barChartData = {
 $(document).ready(function () {
 
     // Google Maps
-    if ($('#map').length != null)
+    if ($('#map').length)
     {
         function initialize() {
 
