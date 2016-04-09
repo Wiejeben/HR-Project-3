@@ -11,7 +11,7 @@ public partial class Main : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         // Init database
-        // MySqlConnection conn = new MySqlConnection("server=127.0.0.1;uid=root;" + "pwd=root;database=project3;");
-        // conn.Open();
+        MySqlConnection conn = new MySqlConnection("server=188.166.36.48;uid=root;pwd=project3;database=project3;");
+        conn.Open();
     }
 }
