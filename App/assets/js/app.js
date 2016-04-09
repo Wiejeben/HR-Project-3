@@ -28,19 +28,28 @@ $(document).ready(function () {
     {
         function initialize() {
 
-            var latlng = new google.maps.LatLng(35.7022077, 139.7722703);
+            var center = new google.maps.LatLng(35.7022077, 139.7722703);
 
             var mapOptions = {
                 zoom: 8,
-                center: latlng
+                center: center
             }
 
             map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
+            // Add marker
             var marker = new google.maps.Marker({
-                position: latlng,
-                map: map,
-                title: 'Hey buddy.'
+                position: center,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: 'Hello World!'
+            });
+
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
             });
         }
 
