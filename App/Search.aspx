@@ -7,7 +7,7 @@
     <div class="row">
         <% foreach (int result in results) { %>
         <div class="col-md-12 search_result">
-            <a href="/house.aspx?hid=<%= result%>" class="search_container">
+            <a href="/House.aspx?hid=<%= result%>" class="search_container">
                 <h2>Lorem ipsum dolor sit amet... mooi maken etc..</h2>
                 <small>Lorem ipsum dolor sit amet.... extra tekst?</small>
                 <span class="glyphicon glyphicon-chevron-right"></span>
