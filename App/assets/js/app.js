@@ -19,14 +19,13 @@ var barChartData = {
             data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
         }
     ]
-
 }
 
 $(document).ready(function () {
 
-    if ($('map').length != null)
+    // Google Maps
+    if ($('#map').length != null)
     {
-        // Google Maps
         function initialize() {
 
             var latlng = new google.maps.LatLng(35.7022077, 139.7722703);
@@ -36,7 +35,7 @@ $(document).ready(function () {
                 center: latlng
             }
 
-            map = new google.maps.Map($('map'), mapOptions);
+            map = new google.maps.Map($('#map'), mapOptions);
 
             var marker = new google.maps.Marker({
                 position: latlng,
@@ -48,6 +47,7 @@ $(document).ready(function () {
         google.maps.event.addDomListener(window, 'load', initialize);
     }
 
+    // Bar graph
     var ctx = $("canvas").get(0).getContext("2d");
     window.myBar = new Chart(ctx).Bar(barChartData, {
         responsive: false
