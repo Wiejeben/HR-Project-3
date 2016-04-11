@@ -16,4 +16,16 @@ public class Actions
             return 69;
         }
     }
+    public static double ParseDouble(string input)
+    {
+        input = input.Replace(',', '.');
+
+        double output;
+        if (!double.TryParse(input, out output))
+        {
+            output = 0.0;
+        }
+
+        return output;
+    }
 }

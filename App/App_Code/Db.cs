@@ -52,7 +52,7 @@ public class Db
         catch (MySqlException ex)
         {
             string exception = "Exception : " + ex.Message.ToString() + "\n\rApplication will close now. \n\r" + squery;
-            Console.WriteLine(exception, "Uncaught MYSQL Exception");
+            System.Diagnostics.Debug.WriteLine(exception, "Uncaught MYSQL Exception");
             Debug(exception);
 
             Environment.Exit(1);
@@ -153,7 +153,7 @@ public class Db
         {
             string exception = "Exception : " + my.Message.ToString() + "\n\r SQL Query : \n\r" + squery;
 
-            Console.WriteLine(exception, "Uncaught MYSQL Exception");
+            System.Diagnostics.Debug.WriteLine(exception, "Uncaught MYSQL Exception");
 
             Debug(exception);
         }
@@ -174,7 +174,7 @@ public class Db
         {
             string exception = "Exception : " + my.Message.ToString() + "\n\r SQL Query : \n\r" + squery;
 
-            Console.WriteLine(exception, "Uncaught MYSQL Exception");
+            System.Diagnostics.Debug.WriteLine(exception, "Uncaught MYSQL Exception");
 
             Debug(exception);
         }
@@ -243,6 +243,6 @@ public class Db
 
     public void Debug(string error)
     {
-        Console.WriteLine(error + "/n/r");
+        System.Diagnostics.Debug.WriteLine(error + "/n/r");
     }
 }

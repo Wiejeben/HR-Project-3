@@ -3,6 +3,7 @@ using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MySql.Data.MySqlClient;
 
 public class Street : Location
 {
@@ -39,6 +40,18 @@ public class Street : Location
         }
 
         return results;
+    }
+
+    public bool Insert()
+    {
+        Db db = new Db();
+
+        db.qBind(new string[] { this.ID.ToString(), this.Name, this.Content, this.Intro, this.Pos.Y().ToString(), this.Pos.X().ToString(), Convert.ToInt32(this.Exists).ToString() });
+        int affected = db.nQuery("INSERT INTO `Street` VALUES (@0, @1, @2, @3, @4, @5, @6, null);");
+
+        db.CloseConn();
+
+        return (affected >= 1);
     }
 
     public List<DataObject> Find(string query)
