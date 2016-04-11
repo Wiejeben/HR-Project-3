@@ -5,15 +5,23 @@
         <h1>Zoekresultaten voor de zoekterm: '<%= query %>'</h1>
     </div>
     <div class="row">
-        <% foreach (Street result in results) { %>
-        <div class="col-md-12 search_result">
-            <a href="/Street.aspx?hid=<%= result%>" class="search_container">
-                <h2>Lorem ipsum dolor sit amet... mooi maken etc..</h2>
-                <small>Lorem ipsum dolor sit amet.... extra tekst?</small>
-                <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
-        </div>
-        <% } %>
+        <%
+            if (results != null)
+            {
+                foreach (Street result in results)
+                { %>
+                    <div class="col-md-12 search_result">
+                        <a href="/Street.aspx?hid=<%= result.ID%>" class="search_container">
+                            <h2><%= result.Name %></h2>
+                            <small><%= result.Intro %></small>
+                            Lees meer <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+            <%  
+                }
+            } else { %>
+                <h2>Er zijn geen resultaten gevonden.</h2>
+            <% } %>
     </div>
 </asp:Content>
 

@@ -11,13 +11,14 @@ public partial class Search : System.Web.UI.Page
     public List<Street> results;
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.results = Street.All();
 
         if (Request.QueryString != null && Request.QueryString.Count > 0)
         {
             if (Request.QueryString["q"] != null)
             {
                 query = Request.QueryString["q"];
+                
+                results = Street.Find(query);
             }
         }
         else
