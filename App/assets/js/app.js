@@ -24,33 +24,35 @@ var barChartData = {
 $(document).ready(function () {
 
     // Google Maps
-    if ($('#map').length)
+    if ($('#map').length && typeof center !== "undefined")
     {
         function initialize() {
 
             //wordt for-loop voor list met coordinaten uit DB op basis van query.
-            var center = new google.maps.LatLng(35.7022077, 139.7722703);
+            var map_center = new google.maps.LatLng(center[1], center[2]);
 
             //constant
             var mapOptions = {
-                zoom: 8,
-                center: center
+                zoom: 15,
+                center: map_center
             }
 
             // DE map
             map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
             //// Add marker
-            //var marker = new google.maps.Marker({
-            //    position: center,
-            //    animation: google.maps.Animation.DROP,
-            //    map: map
-            //});
+            var marker = new google.maps.Marker({
+                position: map_center,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });
 
-
-            //marker.addListener('click', function() {
-            //    infowindow.open(map, marker);
-            //});
+            google.maps.event.addListener(marker, 'click', (function (marker) {
+                return function () {
+                    infowindow.setContent(center[0]);
+                    infowindow.open(map, marker);
+                }
+            })(marker));
 
             var infowindow = new google.maps.InfoWindow({});
             var markericon = '';
