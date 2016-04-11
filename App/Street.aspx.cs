@@ -42,8 +42,8 @@ public partial class StreetLocation : System.Web.UI.Page
                     Name = foundStreet.Name;
                     Intro = foundStreet.Intro;
                     Content = foundStreet.Content;
-                    Lat = foundStreet.Pos.X;
-                    Long = foundStreet.Pos.Y;
+                    Lat = foundStreet.Pos.X();
+                    Long = foundStreet.Pos.Y();
                     Exists = foundStreet.Exists;
                     Timespan = foundStreet.Timespan;
 
