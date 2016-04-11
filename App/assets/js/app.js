@@ -55,16 +55,17 @@ $(document).ready(function () {
             var infowindow = new google.maps.InfoWindow({});
 
             var locations = [
-                ['Beste plek in de wereld.', 35.7022077, 139.2722703, '#FF0000'],
-                ['Beste', 35.2022077, 139.7722703, '#00FF00'],
-                ['plek', 35.7022077, 139.7722703, '#00FF00'],
-                ['in.', 35.0022077, 139.7722703, '#00FF00']
+                ['Atlantis', 35.7022077, 139.2722703],
+                ['アトランティス', 35.2022077, 139.7722703],
+                ['アトランティス２', 35.7022077, 139.7722703],
+                ['in.', 35.0022077, 139.7722703]
             ];
 
             for (i = 0; i < locations.length; i++) {
                 marker = new google.maps.Marker({
                     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                     animation: google.maps.Animation.DROP,
+                    icon: 'http://i.imgur.com/7iYQdIl.png',
                     map: map
                 });
 
