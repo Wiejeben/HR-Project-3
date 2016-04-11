@@ -13,7 +13,7 @@
                     <div class="col-md-12 search_result">
                         <a href="/Street.aspx?hid=<%= result.ID%>" class="search_container">
                             <h2><%= result.Name %></h2>
-                            <small><%= result.Intro %></small>
+                            <small><%= result.Content %></small>
                             Lees meer <span class="glyphicon glyphicon-chevron-right"></span>
                         </a>
                     </div>
