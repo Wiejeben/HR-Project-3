@@ -47,7 +47,7 @@
     </div>
 </asp:Content>
 
-<!-- Import-query van database -->
+<%-- Import-query from database --%>
 
 <asp:Content ID="ContentFooter" ContentPlaceHolderID="ContentFooter" runat="server">
     <script type="text/javascript">
