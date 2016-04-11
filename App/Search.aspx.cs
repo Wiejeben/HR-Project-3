@@ -17,8 +17,8 @@ public partial class Search : System.Web.UI.Page
             if (Request.QueryString["q"] != null)
             {
                 query = Request.QueryString["q"];
-
                 
+                results = Street.Find(query);
             }
         }
         else

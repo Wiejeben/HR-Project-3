@@ -41,9 +41,30 @@ public class Street : Location
         return results;
     }
 
-    public static List<DataObject> Find(string query)
+    public static List<Street> Find(string query)
     {
-        return new List<DataObject>();
+        Db db = new Db();
+        List<Street> results = new List<Street>();
+
+        db.bind("query", "%"+query+"%");
+        DataTable db_results = db.query("SELECT * FROM `Street` WHERE `name` LIKE @query");
+
+        foreach(DataRow row in db_results.Rows)
+        {
+            Street street = new Street();
+
+            street.ID = (int)row["street_id"];
+            street.Name = (string)row["name"];
+
+            street.Intro = (string)row["intro"];
+            street.Content = (string)row["content"];
+
+            street.Pos = new Vector2((double)row["lat"], (double)row["long"]);
+
+            results.Add(street);
+        }
+
+        return results;
     }
     
     public static Street Get(int id)
