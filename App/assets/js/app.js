@@ -53,11 +53,11 @@ $(document).ready(function () {
             //});
 
             var infowindow = new google.maps.InfoWindow({});
-
+            var markericon = '';
             var locations = [
                 ['Atlantis', 35.7022077, 139.2722703],
-                ['アトランティス', 35.2022077, 139.7722703],
-                ['アトランティス２', 35.7022077, 139.7722703],
+                ['iets', 35.2022077, 139.7722703]
+                ['niets ２', 35.7022077, 139.7722703],
                 ['in.', 35.0022077, 139.7722703]
             ];
 
@@ -65,7 +65,7 @@ $(document).ready(function () {
                 marker = new google.maps.Marker({
                     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                     animation: google.maps.Animation.DROP,
-                    icon: 'http://i.imgur.com/7iYQdIl.png',
+                    icon: markericon,
                     map: map
                 });
 
