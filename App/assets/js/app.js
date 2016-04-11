@@ -28,31 +28,49 @@ $(document).ready(function () {
     {
         function initialize() {
 
+            //wordt for-loop voor list met coordinaten uit DB op basis van query.
             var center = new google.maps.LatLng(35.7022077, 139.7722703);
 
+            //constant
             var mapOptions = {
                 zoom: 8,
                 center: center
             }
 
+            // DE map
             map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-            // Add marker
-            var marker = new google.maps.Marker({
-                position: center,
-                animation: google.maps.Animation.DROP,
-                map: map
-            });
+            //// Add marker
+            //var marker = new google.maps.Marker({
+            //    position: center,
+            //    animation: google.maps.Animation.DROP,
+            //    map: map
+            //});
 
-            var infowindow = new google.maps.InfoWindow({
-                content: 'Hello World!'
-            });
 
-            marker.addListener('click', function() {
-                infowindow.open(map, marker);
-            });
+            //marker.addListener('click', function() {
+            //    infowindow.open(map, marker);
+            //});
+
+            var infowindow = new google.maps.InfoWindow({});
+            var markericon = '';
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    animation: google.maps.Animation.DROP,
+                    icon: markericon,
+                    map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
         }
-
         google.maps.event.addDomListener(window, 'load', initialize);
     }
 

@@ -7,6 +7,16 @@
     margin:0;
 }
 
+/* Colors */
+.red {
+    color:#c62f2f;
+}
+.green {
+    color:#0ac251;
+}
+
+/* Specific pages */
+
 .search_result {
      margin:0 0 10px 0;
 }

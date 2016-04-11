@@ -7,30 +7,53 @@ using System.Web.UI.WebControls;
 
 public partial class StreetLocation : System.Web.UI.Page
 {
-    // Variables
+    // Variables that are used in all functionalities.
     protected int Id;
     protected string Name;
     protected string Intro;
     protected string Content;
-    protected float Lat;
-    protected float Long;
-    protected int Exists;
+    protected double Lat;
+    protected double Long;
+    protected bool Exists;
     protected string Timespan;
+
+    // Variables that are used in methods.
+    protected int attemptedId;
+    protected Street foundStreet;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        // Hebben we een parameter ontvangen?
+        // Was there a parameter in the link?
         if (Request.QueryString != null && Request.QueryString.Count > 0)
         {
-            // Is het wel de juiste parameter?
+            // Did we receive the right parameter?
             if (Request.QueryString["hid"] != null)
             {
-                // Hier doen we een query uitvoeren om te checken of het bestaat.
-            }
+                // convert the parameter to ID
+                attemptedId = Int32.Parse(Request.QueryString["hid"]);
 
-            Name = "Lorem ipsum";
-            Intro = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et placerat diam. Sed sed velit fringilla, commodo odio vel, viverra lectus.";
-            Content = "Fusce aliquam accumsan elit, a fringilla lorem interdum tincidunt. Duis vel suscipit dolor, in laoreet tellus. In laoreet massa et fringilla facilisis. Donec sed magna ligula. Nunc varius efficitur dapibus. Vivamus a elit sollicitudin, feugiat odio id, dapibus ex. Cras eu lacus eget justo consequat commodo non non arcu. Vestibulum tempus elementum pulvinar. Ut sit amet nulla mi.";
+                // Check if there's a street with the ID
+                if (Street.Get(attemptedId) != null)
+                {
+                    // Define the variable again so we can use it to define values.
+                    foundStreet = Street.Get(attemptedId);
+
+                    Id = foundStreet.ID;
+                    Name = foundStreet.Name;
+                    Intro = foundStreet.Intro;
+                    Content = foundStreet.Content;
+                    Lat = foundStreet.Pos.X;
+                    Long = foundStreet.Pos.Y;
+                    Exists = foundStreet.Exists;
+                    Timespan = foundStreet.Timespan;
+
+                }
+                else
+                {
+                    // Return 404?..
+                }
+            }
+            
         }
         else
         {

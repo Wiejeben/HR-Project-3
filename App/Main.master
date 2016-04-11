@@ -55,6 +55,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/Chart.min.js"></script>
+    <asp:ContentPlaceHolder ID="ContentFooter" runat="server"></asp:ContentPlaceHolder>
     <script src="/assets/js/app.js"></script>
 </body>
 </html>
