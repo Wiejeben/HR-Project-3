@@ -1,6 +1,7 @@
-﻿<%@ Page Title="House" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="House.aspx.cs" Inherits="House" %>
+﻿<%@ Page Title="Straat" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Street.aspx.cs" Inherits="StreetLocation" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h1><%= houseName %></h1>
+    <h1><%= Name %></h1>
     <div class="row">
         <div class="col-md-4">
             <div id="map" class="map">
@@ -21,20 +22,20 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><%= houseId %></td>
-                        <td><%= houseName %></td>
-                        <td><%= houseLat %></td>
-                        <td><%= houseLong %></td>
-                        <td><%= houseExists %></td>
-                        <td><%= houseTimespan %></td>
+                        <td><%= Id %></td>
+                        <td><%= Name %></td>
+                        <td><%= Lat %></td>
+                        <td><%= Long %></td>
+                        <td><%= Exists %></td>
+                        <td><%= Timespan %></td>
                     </tr>
                 </tbody>
             </table>
             <div class="house_content">
                 <h2>Introductie</h2>
-                <p><%= houseIntro %></p>
+                <p><%= Intro %></p>
                 <h2>Geschiedenis</h2>
-                <p><%= houseContent %></p>
+                <p><%= Content %></p>
             </div>
         </div>
     </div>
