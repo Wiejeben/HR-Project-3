@@ -5,8 +5,8 @@ using System.Web;
 
 public class Vector2
 {
-    double X;
-    double Y;
+    public double X;
+    public double Y;
     public Vector2(double posx, double posy)
     {
         this.X = posx;

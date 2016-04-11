@@ -16,7 +16,7 @@
                         <td>Naam</td>
                         <td>Breedtegraad</td>
                         <td>Lengtegraad</td>
-                        <td>Bestaat sinds</td>
+                        <td>Bestaat</td>
                         <td>Tijdspanne</td>
                     </tr>
                 </thead>
@@ -26,7 +26,13 @@
                         <td><%= Name %></td>
                         <td><%= Lat %></td>
                         <td><%= Long %></td>
-                        <td><%= Exists %></td>
+                        <td>
+                            <% if (Exists){ %>
+                                <span class="glyphicon glyphicon-ok green"></span>
+                            <% } else { %>
+                                <span class="glyphicon glyphicon-remove red"></span>
+                            <% } %>
+                        </td>
                         <td><%= Timespan %></td>
                     </tr>
                 </tbody>
