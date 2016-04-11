@@ -21,24 +21,26 @@
                 </button>
                 <a class="navbar-brand" runat="server" href="~/">Groep 2</a>
             </div>
-            <div class="navbar-collapse navbar-left collapse">
-                <ul class="nav navbar-nav">
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
                     <li><a runat="server" href="~/">Home</a></li>
                     <li><a runat="server" href="~/Charts.aspx">Charts</a></li>
                 </ul>
-            </div>
-            <% if (Request.Url.PathAndQuery != "/Default.aspx"){ %>
-                <form class="navbar-form navbar-right" method="post" action="Default.aspx" role="search">
-                    <div class="form-group field_container">
-                      <input type="text" id="search" name="search" class="form-control" placeholder="Zoeken..">
-                        <div class="btn_container">
-                            <button class="search_btn">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
+                <% if (Request.Url.PathAndQuery != "/Default.aspx"){ %>
+                    <form class="navbar-form navbar-right" method="post" action="Default.aspx" role="search">
+                        <div class="form-group field_container">
+                            <input type="text" id="search" name="search" class="form-control" placeholder="Zoeken..">
+                            
+                            <div class="btn_container">
+                                <button class="search_btn">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-              </form>
-            <% } %>
+                  </form>
+                <% } %>
+            </div>
         </div>
     </div>
 
