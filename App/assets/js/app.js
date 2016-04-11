@@ -54,12 +54,6 @@ $(document).ready(function () {
 
             var infowindow = new google.maps.InfoWindow({});
             var markericon = '';
-            var locations = [
-                ['Atlantis', 35.7022077, 139.2722703],
-                ['iets', 35.2022077, 139.7722703]
-                ['niets ２', 35.7022077, 139.7722703],
-                ['in.', 35.0022077, 139.7722703]
-            ];
 
             for (i = 0; i < locations.length; i++) {
                 marker = new google.maps.Marker({
