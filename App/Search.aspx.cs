@@ -13,8 +13,6 @@ public partial class Search : System.Web.UI.Page
     {
         this.results = Street.All();
 
-        Console.WriteLine("Nothign");
-
         if (Request.QueryString != null && Request.QueryString.Count > 0)
         {
             if (Request.QueryString["q"] != null)

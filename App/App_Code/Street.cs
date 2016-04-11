@@ -11,12 +11,8 @@ public class Street : Location
     public Vector2 Pos { get; set; }
     public bool Exists;
 
-    public Street(int id, string name, Vector2 pos, bool exists)
+    public Street()
     {
-        this.ID = id;
-        this.Name = name;
-        this.Pos = pos;
-        this.Exists = exists;
     }
 
     public static List<Street> All()
@@ -28,15 +24,16 @@ public class Street : Location
 
         foreach (DataRow row in db_results.Rows)
         {
-            Street street = new Street(
-                (int)row["street_id"],
-                (string)row["name"],
-                new Vector2((double)row["lat"], (double)row["long"]),
-                true
-            );
+            Street street = new Street();
+
+            street.ID = (int)row["street_id"];
+            street.Name = (string)row["name"];
 
             street.Intro = (string)row["intro"];
             street.Content = (string)row["content"];
+
+            street.Pos = new Vector2((double)row["lat"], (double)row["long"]);
+            street.Exists = (bool)row["exists"];
 
             results.Add(street);
         }
