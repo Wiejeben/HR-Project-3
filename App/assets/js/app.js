@@ -72,6 +72,24 @@ $(document).ready(function () {
                     }
                 })(marker, i));
             }
+            
+            var centrumRotterdamLat = 51.919980;
+            var centrumRotterdamLng = 4.479993;
+
+            var lineToCentrumCoordinates = [
+                { lat: center[1], lng: center[2] },
+                { lat: centrumRotterdamLat, lng: centrumRotterdamLng }
+            ];
+
+            var lineToCentrum = new google.maps.Polyline({
+                path: lineToCentrumCoordinates,
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+            });
+
+            lineToCentrum.setMap(map);
         }
         google.maps.event.addDomListener(window, 'load', initialize);
     }
