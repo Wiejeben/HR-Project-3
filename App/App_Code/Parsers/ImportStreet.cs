@@ -10,7 +10,7 @@ using Microsoft.VisualBasic.FileIO;
 public class ImportStreet : Import
 {
     private TextFieldParser Content;
-    private List<Street> Object;
+    private List<Street> Objects;
 
     public ImportStreet(string filename)
     {
@@ -18,8 +18,7 @@ public class ImportStreet : Import
         if(this.Get(filename))
         {
             // Transform contents to objects
-            List<Street> objects = this.Implements();
-            this.Object = objects;
+            this.Objects = this.Implements();
 
             // Clear DB
             Db db = new Db();
@@ -36,9 +35,7 @@ public class ImportStreet : Import
     {
         try
         {
-            string path = HttpContext.Current.Server.MapPath(filename);
-            TextFieldParser result = new TextFieldParser(HttpContext.Current.Server.MapPath(filename));
-            this.Content = result;
+            this.Content = new TextFieldParser(HttpContext.Current.Server.MapPath(filename));
 
             return true;
         }
@@ -53,9 +50,13 @@ public class ImportStreet : Import
     {
         Db db = new Db();
         // Insert all
-        foreach (Street street in this.Object)
+        foreach (Street street in this.Objects)
         {
-            street.Insert(db);
+            if(!street.Insert(db))
+            {
+                db.CloseConn();
+                return false;
+            }
         }
 
         db.CloseConn();
