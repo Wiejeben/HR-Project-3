@@ -10,7 +10,7 @@ public class Street : Location
     public int ID;
     public string Name, Intro, Content;
     public Vector2 Pos { get; set; }
-    public bool Exists;
+    public bool Exists = false;
     public string Timespan;
 
     public Street()
