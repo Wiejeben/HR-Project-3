@@ -42,7 +42,7 @@
             
             <div class="house_content">
                 <h2>Geschiedenis</h2>
-                <p><%= Intro %></p>
+                <p><%= Content %></p>
             </div>
         </div>
     </div>
