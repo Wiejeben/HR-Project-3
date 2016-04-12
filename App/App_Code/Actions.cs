@@ -30,10 +30,10 @@ public class Actions
     }
     public static double getDistance(Vector2 pos1, Vector2 pos2)
     {
-        var sLatitudeRadians = pos1.X * (Math.PI / 180.0);
-        var sLongitudeRadians = pos1.Y * (Math.PI / 180.0);
-        var eLatitudeRadians = pos2.X * (Math.PI / 180.0);
-        var eLongitudeRadians = pos2.Y * (Math.PI / 180.0);
+        var sLatitudeRadians = pos1.X() * (Math.PI / 180.0);
+        var sLongitudeRadians = pos1.Y() * (Math.PI / 180.0);
+        var eLatitudeRadians = pos2.X() * (Math.PI / 180.0);
+        var eLongitudeRadians = pos2.Y() * (Math.PI / 180.0);
 
         var dLongitude = eLongitudeRadians - sLongitudeRadians;
         var dLatitude = eLatitudeRadians - sLatitudeRadians;
