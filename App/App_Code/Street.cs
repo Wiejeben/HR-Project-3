@@ -39,6 +39,7 @@ public class Street : Location
             results.Add(street);
         }
 
+        db.CloseConn();
         return results;
     }
 
@@ -73,6 +74,7 @@ public class Street : Location
             results.Add(street);
         }
 
+        db.CloseConn();
         return results;
     }
     
