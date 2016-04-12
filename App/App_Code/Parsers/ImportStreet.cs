@@ -23,7 +23,7 @@ public class ImportStreet : Import
 
             // Clear DB
             Db db = new Db();
-            db.query("TRUNCATE `Street`;");
+            db.query("DELETE FROM `Street`;");
             db.CloseConn();
 
             // Upload to database
@@ -51,12 +51,14 @@ public class ImportStreet : Import
     // Upload to database
     private bool Set()
     {
+        Db db = new Db();
         // Insert all
         foreach (Street street in this.Object)
         {
-            street.Insert();
+            street.Insert(db);
         }
 
+        db.CloseConn();
         return true;
     }
 
@@ -81,7 +83,7 @@ public class ImportStreet : Import
                 Street street = new Street();
                 street.Pos = new Vector2(Actions.ParseDouble(fields[6]), Actions.ParseDouble(fields[7]));
 
-                for (int i = 0; i <= fields.Length; i++)
+                for (int i = 0; i <= fields.Length - 1; i++)
                 {
                     switch (i)
                     {
@@ -103,6 +105,10 @@ public class ImportStreet : Import
 
                         case 15:
                             street.Exists = (fields[i] == "Bestaand");
+                            break;
+
+                        case 16:
+                            street.Timespan = fields[i];
                             break;
                     }
                 }
