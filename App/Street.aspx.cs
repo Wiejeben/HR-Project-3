@@ -53,7 +53,14 @@ public partial class StreetLocation : System.Web.UI.Page
                     throw new HttpException(404, "");
                 }
             }
-            
+            else
+            {
+                throw new HttpException(404, "");
+            }
+        }
+        else
+        {
+            throw new HttpException(404, "");
         }
     }
 }
