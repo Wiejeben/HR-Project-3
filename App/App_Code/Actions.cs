@@ -10,12 +10,7 @@ public class Actions
         //unfinished
         return new List<Location>();
     }
-    public static int getDistance(Location pos1, Location pos2) {
-        {
-            //unfinished
-            return 69;
-        }
-    }
+
     public static double ParseDouble(string input)
     {
         input = input.Replace(',', '.');
