@@ -36,7 +36,7 @@
                                 <% } %>
                             </td>
                             <td><%= Timespan %></td>
-                            <td><%= Distance %> Meter</td>
+                            <td><%= Distance %> meter</td>
                         </tr>
                     </tbody>
                 </table>
