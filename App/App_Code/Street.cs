@@ -30,7 +30,7 @@ public class Street : Location
 
             street.ID = (int)row["street_id"];
             street.Name = (string)row["name"];
-
+    
             street.Intro = (string)row["intro"];
             street.Content = (string)row["content"];
 
@@ -42,14 +42,10 @@ public class Street : Location
         return results;
     }
 
-    public bool Insert()
+    public bool Insert(Db db)
     {
-        Db db = new Db();
-
-        db.qBind(new string[] { this.ID.ToString(), this.Name, this.Content, this.Intro, this.Pos.Y().ToString(), this.Pos.X().ToString(), Convert.ToInt32(this.Exists).ToString() });
-        int affected = db.nQuery("INSERT INTO `Street` VALUES (@0, @1, @2, @3, @4, @5, @6, null);");
-
-        db.CloseConn();
+        db.qBind(new string[] { this.ID.ToString(), this.Name, this.Intro, this.Content, this.Pos.Y().ToString(), this.Pos.X().ToString(), Convert.ToInt32(this.Exists).ToString(), this.Timespan });
+        int affected = db.nQuery("INSERT INTO `Street` VALUES (@0, @1, @2, @3, @4, @5, @6, @7);");
 
         return (affected >= 1);
     }

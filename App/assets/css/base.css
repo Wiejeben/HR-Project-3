@@ -37,6 +37,11 @@
     margin:0;
 }
 
+.search_container .intro_text {
+    display:block;
+    padding:0 40px 0 0;
+}
+
 .search_container .glyphicon {
     position:absolute;
     right:30px;
@@ -53,7 +58,7 @@
     border-color:#000000;
 }
 
-/* Homepage */
+/* Homepage | Error */
 .banner h1 {
     font-size:31px;
     text-align:center;
@@ -64,6 +69,11 @@
     font-size:16px;
     width:100%;
     padding:12px;
+}
+
+.banner .subtext {
+    font-size:14px;
+    text-align:center;
 }
 
 .field_container {

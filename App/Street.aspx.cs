@@ -50,15 +50,10 @@ public partial class StreetLocation : System.Web.UI.Page
                 }
                 else
                 {
-                    // Return 404?..
+                    throw new HttpException(404, "");
                 }
             }
             
-        }
-        else
-        {
-            // Redirect implementation
-            // Server.Transfer("Default.aspx", true);
         }
     }
 }
