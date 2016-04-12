@@ -47,7 +47,14 @@ public partial class Search : System.Web.UI.Page
         var jsonSerializer = new JavaScriptSerializer();
         var jsonNames = jsonSerializer.Serialize(streetNames);
 
-        // Return the json string to the ajax call
-        return jsonNames;
+        if(jsonNames != "[]")
+        {
+            // Return the json string to the ajax call
+            return jsonNames;
+        }
+        else
+        {
+            return null;
+        }
     }
 }
