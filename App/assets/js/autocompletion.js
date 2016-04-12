@@ -7,7 +7,7 @@
     // Variables for the ajax call
     var url = "Search.aspx/Find";
     var data = '{ "query": "'+search_query+'" }';
-
+    var streetNames = '';
     
     if (search_charcount >= 3) {
         $.ajax({
@@ -17,7 +17,13 @@
             dataType: 'json',
             contentType: 'application/json',
             success: function (data) {
-                console.log(data);
+                
+                if (data['d'] != null) {
+                    streetNames = data['d'];
+                }
+                else {
+                    console.log('no data');
+                }
             },
             error: function (data, status) {
                 alert("Error.");
