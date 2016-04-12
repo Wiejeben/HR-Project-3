@@ -30,7 +30,7 @@ public class Street : Location
 
             street.ID = (int)row["street_id"];
             street.Name = (string)row["name"];
-
+    
             street.Intro = (string)row["intro"];
             street.Content = (string)row["content"];
 

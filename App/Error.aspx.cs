@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _Default : System.Web.UI.Page
+public partial class Error : System.Web.UI.Page
 {
     public string query;
 
@@ -17,7 +17,7 @@ public partial class _Default : System.Web.UI.Page
             query = Request.Form[0];
 
             // If it isn't empty / null.
-            if(!string.IsNullOrWhiteSpace(query))
+            if (!string.IsNullOrWhiteSpace(query))
             {
                 Response.Redirect("Search.aspx?q=" + query);
             }

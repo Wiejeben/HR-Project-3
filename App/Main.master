@@ -27,7 +27,7 @@
                     <li><a runat="server" href="~/">Home</a></li>
                     <li><a runat="server" href="~/Charts.aspx">Charts</a></li>
                 </ul>
-                <% if (Request.Url.PathAndQuery != "/Default.aspx"){ %>
+                <% if (Request.Url.PathAndQuery != "/Default.aspx" && Request.Url.PathAndQuery != "/Error.aspx"){ %>
                     <form class="navbar-form navbar-right" method="post" action="Default.aspx" role="search">
                         <div class="form-group field_container">
                             <input type="text" id="search" name="search" class="form-control" placeholder="Zoeken..">
