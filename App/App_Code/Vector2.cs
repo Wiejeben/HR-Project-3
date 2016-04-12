@@ -5,12 +5,22 @@ using System.Web;
 
 public class Vector2
 {
-    public double X { get; }
-    public double Y { get; }
+    double _x;
+    double _y;
 
     public Vector2(double posx, double posy)
     {
-        this.X = posx;
-        this.Y = posy;
+        this._x = posx;
+        this._y = posy;
+    }
+
+    public double X()
+    {
+        return this._x;
+    }
+
+    public double Y()
+    {
+        return this._y;
     }
 }
