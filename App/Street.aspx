@@ -19,6 +19,7 @@
                             <td>Lengtegraad</td>
                             <td>Bestaat</td>
                             <td>Tijdspanne</td>
+                            <td>Afstand tot centrum</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,7 @@
                                 <% } %>
                             </td>
                             <td><%= Timespan %></td>
+                            <td><%= Distance %> Meter</td>
                         </tr>
                     </tbody>
                 </table>

@@ -43,8 +43,8 @@ public class Actions
                       Math.Pow(Math.Sin(dLongitude / 2.0), 2.0);
 
         // Using 3956 as the number of miles around the earth
-        var result2 = 3956.0 * 2.0 *
-                      Math.Atan2(Math.Sqrt(result1), Math.Sqrt(1.0 - result1));
+        var result2 = (int)(3956.0 * 2.0 *
+                      Math.Atan2(Math.Sqrt(result1), Math.Sqrt(1.0 - result1))*1000);
 
         return result2;
     }

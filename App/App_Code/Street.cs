@@ -69,7 +69,7 @@ public class Street : Location
             street.Content = (string)row["content"];
 
             street.Pos = new Vector2((double)row["lat"], (double)row["long"]);
-
+ 
             results.Add(street);
         }
 
