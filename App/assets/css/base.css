@@ -37,6 +37,11 @@
     margin:0;
 }
 
+.search_container .intro_text {
+    display:block;
+    padding:0 40px 0 0;
+}
+
 .search_container .glyphicon {
     position:absolute;
     right:30px;

@@ -5,7 +5,7 @@
         <h1>Op zoek naar een straat?</h1>
         <div class="field_container">
             <form method="post" action="Default.aspx">
-                <input type="text" id="search" runat="server" name="search" placeholder="Vul een adres in..." autofocus />
+                <input type="text" id="search_ac" runat="server" name="search search_ac" placeholder="Vul een adres in..." autofocus />
                 <div class="btn_container">
                     <button class="search_btn">
                         <span class="glyphicon glyphicon-search"></span>

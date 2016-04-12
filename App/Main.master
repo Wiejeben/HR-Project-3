@@ -59,5 +59,6 @@
     <script src="/assets/js/Chart.min.js"></script>
     <asp:ContentPlaceHolder ID="ContentFooter" runat="server"></asp:ContentPlaceHolder>
     <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/autocompletion.js"></script>
 </body>
 </html>
