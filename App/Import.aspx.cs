@@ -16,4 +16,9 @@ public partial class ImportPage : System.Web.UI.Page
     {
         new ImportStreet("assets/datasets/straatnamen-van-rotterdam.csv");
     }
+
+    public void ButtonImportCrimes(object sender, EventArgs e)
+    {
+        new ImportCrimes("assets/datasets/fietsdiefstallen.csv");
+    }
 }

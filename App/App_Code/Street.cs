@@ -53,13 +53,26 @@ public class Street : Location
 
     public static List<Street> Find(string query)
     {
+        return Where("name", "like", "%"+query+"%");
+    }
+
+    public static List<Street> Where(string field, string @operator, string value)
+    {
         Db db = new Db();
+        db.qBind(new string[] { value });
+
+        DataTable results = db.query("SELECT * FROM `Street` WHERE `" + field + "` " + @operator + " @0");
+
+        db.CloseConn();
+
+        return DataTableToObjects(results);
+    }
+
+    private static List<Street> DataTableToObjects(DataTable data)
+    {
         List<Street> results = new List<Street>();
 
-        db.bind("query", "%"+query+"%");
-        DataTable db_results = db.query("SELECT * FROM `Street` WHERE `name` LIKE @query");
-
-        foreach(DataRow row in db_results.Rows)
+        foreach (DataRow row in data.Rows)
         {
             Street street = new Street();
 
@@ -70,14 +83,13 @@ public class Street : Location
             street.Content = (string)row["content"];
 
             street.Pos = new Vector2((double)row["lat"], (double)row["long"]);
- 
+
             results.Add(street);
         }
 
-        db.CloseConn();
         return results;
     }
-    
+
     public static Street Get(int id)
     {
         // Variables to be used.

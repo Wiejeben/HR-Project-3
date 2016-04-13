@@ -33,6 +33,8 @@ public class Db
     //
     private List<string> parameters;
 
+    public int last_inserted_id;
+
     public Db()
     {
         Connect();
@@ -169,6 +171,7 @@ public class Db
         try
         {
             affected = command.ExecuteNonQuery();
+            this.last_inserted_id = Convert.ToInt32(command.LastInsertedId);
         }
         catch (MySqlException my)
         {
