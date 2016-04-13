@@ -20,6 +20,14 @@
     background:white;
     border:1px solid #dff0d8;
     border-top:none;
+    overflow-y:auto;
+    position:absolute;
+}
+
+.search_dropdown p{
+    font-size:20px;
+    text-align:center;
+    margin:10px 0;
 }
 
 .search_dropdown .result {
@@ -28,6 +36,15 @@
     padding:10px;
     position:relative;
     z-index:1;
+    cursor:pointer;
+}
+
+.search_dropdown .result:hover {
+    background:#d7d5d5;
+}
+
+.search_dropdown .result:hover:before {
+    border-color:#d7d5d5;
 }
 
 .search_dropdown .result:before {

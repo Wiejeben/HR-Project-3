@@ -48,3 +48,12 @@
         $(dropdown).find('.result').remove();
     }
 });
+
+$('.search_dropdown').on("click", '.result' , function () {
+    var searchf = $('.search_ac');
+    var selected = $(this).text();
+        
+    searchf.val(selected);
+    $("#search_func").submit();
+
+});
