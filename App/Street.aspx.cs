@@ -49,6 +49,8 @@ public partial class StreetLocation : System.Web.UI.Page
                     Timespan = foundStreet.Timespan;
                     Distance = Actions.getDistance(foundStreet.Pos, new Vector2(51.919980, 4.479993));
 
+                    Page.Title = foundStreet.Name;
+
                     return;
                 }
             }

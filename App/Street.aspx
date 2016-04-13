@@ -1,7 +1,7 @@
-﻿<%@ Page Title="Straat" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Street.aspx.cs" Inherits="StreetLocation" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Street.aspx.cs" Inherits="StreetLocation" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h1><%= Name %></h1>
+    <h1><%: Name %></h1>
     <div class="row">
         <div class="col-md-4">
             <div id="map" class="map">
@@ -24,10 +24,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><%= Id %></td>
-                            <td><%= Name %></td>
-                            <td><%= Lat %></td>
-                            <td><%= Long %></td>
+                            <td><%: Id %></td>
+                            <td><%: Name %></td>
+                            <td><%: Lat %></td>
+                            <td><%: Long %></td>
                             <td>
                                 <% if (Exists){ %>
                                     <span class="glyphicon glyphicon-ok green"></span>
@@ -35,8 +35,8 @@
                                     <span class="glyphicon glyphicon-remove red"></span>
                                 <% } %>
                             </td>
-                            <td><%= Timespan %></td>
-                            <td><%= Distance %> meter</td>
+                            <td><%: Timespan %></td>
+                            <td><%: Distance %> meter</td>
                         </tr>
                     </tbody>
                 </table>
@@ -44,7 +44,7 @@
             
             <div class="house_content">
                 <h2>Geschiedenis</h2>
-                <p><%= Content %></p>
+                <p><%: String.IsNullOrEmpty(Content) ? Intro : Content %></p>
             </div>
         </div>
     </div>
@@ -61,6 +61,6 @@
             ['in.', 35.0022077, 139.7722703]
         ];
 
-        var center = ['<%= Name %>', <%= Lat %>, <%= Long %>];
+        var center = ['<%: Name %>', <%: Lat %>, <%: Long %>];
     </script>
 </asp:Content>
