@@ -66,8 +66,8 @@ public class Street : Location
     public static List<Street> Where(string field, string @operator, string value)
     {
         Db db = new Db();
-        db.qBind(new string[] { value });
 
+        db.qBind(new string[] { value });
         DataTable results = db.query("SELECT * FROM `Street` WHERE `" + field + "` " + @operator + " @0");
 
         db.CloseConn();
@@ -105,26 +105,25 @@ public class Street : Location
         // Bind the field & value.
         db.bind("street_id", id.ToString());
         // Place the row with the query results in a variable.
-        string[] attemptedStreet = db.row("SELECT * FROM `Street` WHERE `street_id` = @street_id");
+        string[] result = db.row("SELECT * FROM `Street` WHERE `street_id` = @street_id");
+        
         // We have a result
-        if(attemptedStreet[0] != null)
+        if(result[0] != null)
         {
-            Street foundStreet = new Street();
+            Street street = new Street();
 
             // Set data onto the instance.
-            foundStreet.ID = Int32.Parse(attemptedStreet[0]);
-            foundStreet.Name = attemptedStreet[1];
-            foundStreet.Intro = attemptedStreet[2];
-            foundStreet.Content = attemptedStreet[3];
-            foundStreet.Pos = new Vector2(Convert.ToDouble(attemptedStreet[4]), Convert.ToDouble(attemptedStreet[5]));
-            foundStreet.Exists = Convert.ToBoolean(attemptedStreet[6]);
-            foundStreet.Timespan = attemptedStreet[7];
+            street.ID           = Int32.Parse(result[0]);
+            street.Name         = result[1];
+            street.Intro        = result[2];
+            street.Content      = result[3];
+            street.Pos          = new Vector2(Convert.ToDouble(result[4]), Convert.ToDouble(result[5]));
+            street.Exists       = Convert.ToBoolean(result[6]);
+            street.Timespan     = result[7];
 
-            return foundStreet;
+            return street;
         }
-        else
-        {
-            return null;
-        }
+
+        return null;
     }
 }

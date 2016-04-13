@@ -48,20 +48,12 @@ public partial class StreetLocation : System.Web.UI.Page
                     Exists = foundStreet.Exists;
                     Timespan = foundStreet.Timespan;
                     Distance = Actions.getDistance(foundStreet.Pos, new Vector2(51.919980, 4.479993));
-                }
-                else
-                {
-                    throw new HttpException(404, "");
+
+                    return;
                 }
             }
-            else
-            {
-                throw new HttpException(404, "");
-            }
         }
-        else
-        {
-            throw new HttpException(404, "");
-        }
+
+        throw new HttpException(404, "");
     }
 }
