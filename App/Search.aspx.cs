@@ -12,6 +12,7 @@ public partial class Search : System.Web.UI.Page
 {
     public string query;
     public List<Street> results;
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -19,9 +20,11 @@ public partial class Search : System.Web.UI.Page
         {
             if (Request.QueryString["q"] != null)
             {
-                query = Request.QueryString["q"];
+                this.query = Request.QueryString["q"];
 
-                results = Street.Find(query);
+                this.results = Street.Find(this.query);
+
+                Page.Title = this.query;
             }
         }
     }
