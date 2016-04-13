@@ -24,18 +24,13 @@ public partial class Search : System.Web.UI.Page
                 results = Street.Find(query);
             }
         }
-        else
-        {
-            // Redirect implementation if no search string was entered
-            // Server.Transfer("Default.aspx", true);
-        }
     }
 
     [WebMethod]
     public static string Find(string query)
     {
         // Get all the results with the entered query.
-        List<Street> results = Street.Find(query);
+        List<Street> results = Street.Find(query, 10);
 
         List<string> streetNames = new List<string>();
         // We only want the names, so we place this in a string list.

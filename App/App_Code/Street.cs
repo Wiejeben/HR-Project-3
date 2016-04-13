@@ -51,13 +51,13 @@ public class Street : Location
         return (affected >= 1);
     }
 
-    public static List<Street> Find(string query)
+    public static List<Street> Find(string query, int limit = 40)
     {
         Db db = new Db();
         List<Street> results = new List<Street>();
 
         db.bind("query", "%"+query+"%");
-        DataTable db_results = db.query("SELECT * FROM `Street` WHERE `name` LIKE @query");
+        DataTable db_results = db.query("SELECT * FROM `Street` WHERE `name` LIKE @query LIMIT " + limit);
 
         foreach(DataRow row in db_results.Rows)
         {
