@@ -1,6 +1,6 @@
-﻿$("#MainContent_search_ac").on("input", function () {
+﻿$(".search_ac").on("input", function () {
     // Input variables
-    var searchf = $("#MainContent_search_ac");
+    var searchf = $(this);
     var search_charcount = $(searchf).val().replace(/ /g, '').length;
     var search_query = $(searchf).val();
 
