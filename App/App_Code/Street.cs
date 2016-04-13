@@ -51,9 +51,16 @@ public class Street : Location
         return (affected >= 1);
     }
 
-    public static List<Street> Find(string query)
+    public static List<Street> Find(string query, int limit = 40)
     {
-        return Where("name", "like", "%"+query+"%");
+        Db db = new Db();
+
+        db.bind("query", "%" + query + "%");
+        DataTable results = db.query("SELECT * FROM `Street` WHERE `name` LIKE @query LIMIT " + limit);
+
+        db.CloseConn();
+
+        return DataTableToObjects(results);
     }
 
     public static List<Street> Where(string field, string @operator, string value)

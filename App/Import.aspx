@@ -11,6 +11,7 @@
     <div>
         <asp:Button ID="Button1" runat="server" Text="Import streets" onClick="ButtonImport" /><br />
         <asp:Button ID="Button2" runat="server" Text="Import bike theft" onClick="ButtonImportCrimes" />
+        <asp:Button ID="Button3" runat="server" Text="Import tranport stops" onClick="ButtonImportTr" />
     </div>
     </form>
 </body>

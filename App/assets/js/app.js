@@ -28,8 +28,12 @@ $(document).ready(function () {
     {
         function initialize() {
 
+            var centrumRotterdamLat = 51.919980;
+            var centrumRotterdamLng = 4.479993;
+
             //wordt for-loop voor list met coordinaten uit DB op basis van query.
             var map_center = new google.maps.LatLng(center[1], center[2]);
+            var rotterdam_center = new google.maps.LatLng(centrumRotterdamLat, centrumRotterdamLng);
 
             //constant
             var mapOptions = {
@@ -54,6 +58,21 @@ $(document).ready(function () {
                 }
             })(marker));
 
+            //// Add marker
+            var marker = new google.maps.Marker({
+                position: rotterdam_center,
+                animation: google.maps.Animation.DROP,
+                map: map,
+                icon: '../assets/img/markerblue.png'
+            });
+
+            google.maps.event.addListener(marker, 'click', (function (marker) {
+                return function () {
+                    infowindow.setContent("Rotterdam Centrum");
+                    infowindow.open(map, marker);
+                }
+            })(marker));
+
             var infowindow = new google.maps.InfoWindow({});
             var markericon = '';
 
@@ -73,9 +92,6 @@ $(document).ready(function () {
                 })(marker, i));
             }
             
-            var centrumRotterdamLat = 51.919980;
-            var centrumRotterdamLng = 4.479993;
-
             var lineToCentrumCoordinates = [
                 { lat: center[1], lng: center[2] },
                 { lat: centrumRotterdamLat, lng: centrumRotterdamLng }

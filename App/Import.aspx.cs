@@ -21,4 +21,8 @@ public partial class ImportPage : System.Web.UI.Page
     {
         new ImportCrimes("assets/datasets/fietsdiefstallen.csv");
     }
+    public void ButtonImportTr(object sender, EventArgs e)
+    {
+        new ImportTransportStop("assets/datasets/RET-haltebestand.csv");
+    }
 }

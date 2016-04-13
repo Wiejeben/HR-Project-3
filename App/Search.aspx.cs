@@ -20,14 +20,9 @@ public partial class Search : System.Web.UI.Page
             if (Request.QueryString["q"] != null)
             {
                 query = Request.QueryString["q"];
-                
+
                 results = Street.Find(query);
             }
-        }
-        else
-        {
-            // Redirect implementation if no search string was entered
-            // Server.Transfer("Default.aspx", true);
         }
     }
 
@@ -35,11 +30,11 @@ public partial class Search : System.Web.UI.Page
     public static string Find(string query)
     {
         // Get all the results with the entered query.
-        List<Street> results = Street.Find(query);
+        List<Street> results = Street.Find(query, 10);
 
         List<string> streetNames = new List<string>();
         // We only want the names, so we place this in a string list.
-        foreach(Street street in results)
+        foreach (Street street in results)
         {
             streetNames.Add(street.Name);
         }
