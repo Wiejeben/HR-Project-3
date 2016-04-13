@@ -14,7 +14,7 @@ public partial class ImportPage : System.Web.UI.Page
 
     public void ButtonImport(object sender, EventArgs e)
     {
-        new ImportStreet("assets/datasets/straatnamen-van-rotterdam.csv");
+        new ImportStreets("assets/datasets/straatnamen-van-rotterdam.csv");
     }
 
     public void ButtonImportCrimes(object sender, EventArgs e)
@@ -23,6 +23,6 @@ public partial class ImportPage : System.Web.UI.Page
     }
     public void ButtonImportTr(object sender, EventArgs e)
     {
-        new ImportTransportStop("assets/datasets/RET-haltebestand.csv");
+        new ImportTransportStops("assets/datasets/RET-haltebestand.csv");
     }
 }

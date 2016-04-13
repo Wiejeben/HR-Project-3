@@ -7,12 +7,12 @@ using Microsoft.VisualBasic.FileIO;
 /// <summary>
 /// Summary description for ImportTransportStop
 /// </summary>
-public class ImportTransportStop : Import
+public class ImportTransportStops : Import
 {
     private TextFieldParser Content;
     private List<TransportStop> Objects;
 
-    public ImportTransportStop(string filename)
+    public ImportTransportStops(string filename)
     {
         // Get file contents
         if(this.Get(filename))

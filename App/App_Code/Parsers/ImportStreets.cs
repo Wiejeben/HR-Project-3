@@ -7,12 +7,12 @@ using Microsoft.VisualBasic.FileIO;
 /// <summary>
 /// Summary description for ImportStreet
 /// </summary>
-public class ImportStreet : Import
+public class ImportStreets : Import
 {
     private TextFieldParser Content;
     private List<Street> Objects;
 
-    public ImportStreet(string filename)
+    public ImportStreets(string filename)
     {
         // Get file contents
         if(this.Get(filename))
