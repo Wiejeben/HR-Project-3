@@ -29,11 +29,11 @@
                             <td><%: Long %></td>
                             <td>
                                 <% if (Exists)
-                                { %>
+                                    { %>
                                 <span class="glyphicon glyphicon-ok green"></span>
                                 <% }
-                                else
-                                { %>
+                                    else
+                                    { %>
                                 <span class="glyphicon glyphicon-remove red"></span>
                                 <% } %>
                             </td>

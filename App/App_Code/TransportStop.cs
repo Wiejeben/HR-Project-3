@@ -1,15 +1,15 @@
-﻿using System;
-using System.Data;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
-using MySql.Data.MySqlClient;
 
 public class TransportStop : Location
 {
     public string Name;
     public Vector2 Pos { get; set; }
-    public string Descr;
+    public string Description;
 
     public TransportStop()
     {
@@ -26,8 +26,8 @@ public class TransportStop : Location
         {
             TransportStop transportstop = new TransportStop();
 
-            transportstop.Name = (string)row["name"];
-            transportstop.Descr = (string)row["description"];
+            transportstop.Name = (string)row["stopname"];
+            transportstop.Description = (string)row["description"];
             transportstop.Pos = new Vector2((double)row["lat"], (double)row["long"]);
             results.Add(transportstop);
         }
@@ -35,15 +35,17 @@ public class TransportStop : Location
         db.CloseConn();
         return results;
     }
+
     public bool Insert(Db db)
 
     {
-        db.qBind(new string[] { this.Name, this.Descr.ToString(), this.Pos.X().ToString(), this.Pos.Y().ToString() });
-    int affected = db.nQuery("INSERT INTO `Public_Transport` VALUES (null, @0, @1, @2, @3);");
+        db.qBind(new string[] { this.Name, this.Description.ToString(), this.Pos.X.ToString(), this.Pos.Y.ToString() });
+        int affected = db.nQuery("INSERT INTO `Public_Transport` VALUES (null, @0, @1, @2, @3);");
 
         return (affected >= 1);
     }
-        public static List<TransportStop> Find(string query)
+
+    public static List<TransportStop> Find(string query)
     {
         Db db = new Db();
         List<TransportStop> results = new List<TransportStop>();
@@ -56,7 +58,7 @@ public class TransportStop : Location
             TransportStop transportstop = new TransportStop();
 
             transportstop.Name = (string)row["name"];
-            transportstop.Descr = (string)row["description"];
+            transportstop.Description = (string)row["description"];
             transportstop.Pos = new Vector2((double)row["lat"], (double)row["long"]);
 
             results.Add(transportstop);
@@ -78,10 +80,10 @@ public class TransportStop : Location
         {
             TransportStop foundTransportStop = new TransportStop();
 
-        // Set data onto the instance.
-        foundTransportStop.Name = attemptedTransportStop[0];
-        foundTransportStop.Descr = attemptedTransportStop[1];
-        foundTransportStop.Pos = new Vector2(Convert.ToDouble(attemptedTransportStop[2]), Convert.ToDouble(attemptedTransportStop[3]));
+            // Set data onto the instance.
+            foundTransportStop.Name = attemptedTransportStop[0];
+            foundTransportStop.Description = attemptedTransportStop[1];
+            foundTransportStop.Pos = new Vector2(Convert.ToDouble(attemptedTransportStop[2]), Convert.ToDouble(attemptedTransportStop[3]));
 
             return foundTransportStop;
         }
