@@ -46,7 +46,7 @@
 
             <div class="house_content">
                 <h2>Geschiedenis</h2>
-                <p><%: sb %></p>
+                <%--<p><%: sb %></p>--%>
                 <p><%: String.IsNullOrEmpty(Content) ? Intro : Content %></p>
             </div>
         </div>
