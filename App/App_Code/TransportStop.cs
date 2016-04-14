@@ -39,7 +39,7 @@ public class TransportStop : Location
     public bool Insert(Db db)
 
     {
-        db.qBind(new string[] { this.Name, this.Description.ToString(), this.Pos.X.ToString(), this.Pos.Y.ToString() });
+        db.qBind(new string[] { this.Name, this.Description, this.Pos.X.ToString(), this.Pos.Y.ToString() });
         int affected = db.nQuery("INSERT INTO `Public_Transport` VALUES (null, @0, @1, @2, @3);");
 
         return (affected >= 1);

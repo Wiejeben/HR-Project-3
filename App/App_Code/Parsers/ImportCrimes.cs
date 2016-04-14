@@ -10,7 +10,7 @@ using Microsoft.VisualBasic.FileIO;
 public class ImportCrimes : Import
 {
     private TextFieldParser Content;
-    private List<BikeTheft> Objects;
+    private List<Theft> Objects;
     private List<Street> Streets;
 
     public ImportCrimes(string filename)
@@ -26,7 +26,7 @@ public class ImportCrimes : Import
 
             // Clear DB
             Db db = new Db();
-            db.query("DELETE FROM `Bike_Thefts`; DELETE FROM `Objects`;");
+            db.query("DELETE FROM `Thefts`; DELETE FROM `Objects`;");
             db.CloseConn();
 
             // Upload to database
@@ -50,10 +50,10 @@ public class ImportCrimes : Import
     }
 
     // Transform to Street objects
-    private List<BikeTheft> Implements()
+    private List<Theft> Implements()
     {
         TextFieldParser parser = this.Content;
-        List<BikeTheft> results = new List<BikeTheft>();
+        List<Theft> results = new List<Theft>();
 
         parser.TextFieldType = FieldType.Delimited;
         parser.SetDelimiters(";");
@@ -68,7 +68,7 @@ public class ImportCrimes : Import
             Street street = this.Streets.Find(i => i.Name.ToLower() == fields[9].ToLower());
             if (!firstLine && fields[7].Contains("ROTTERDAM") && street != null)
             {
-                BikeTheft theft = new BikeTheft();
+                Theft theft = new Theft();
 
                 for (int i = 0; i <= fields.Length - 1; i++)
                 {
@@ -104,7 +104,7 @@ public class ImportCrimes : Import
     {
         Db db = new Db();
         // Insert all
-        foreach (BikeTheft theft in this.Objects)
+        foreach (Theft theft in this.Objects)
         {
             if (!theft.Insert(db))
             {
