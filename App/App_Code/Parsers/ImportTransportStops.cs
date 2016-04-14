@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Microsoft.VisualBasic.FileIO;
 
 /// <summary>
 /// Summary description for ImportTransportStop
@@ -15,7 +15,7 @@ public class ImportTransportStops : Import
     public ImportTransportStops(string filename)
     {
         // Get file contents
-        if(this.Get(filename))
+        if (this.Get(filename))
         {
             // Transform contents to objects
             this.Objects = this.Implements();

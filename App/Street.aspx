@@ -57,6 +57,7 @@
 
 <asp:Content ID="ContentFooter" ContentPlaceHolderID="ContentFooter" runat="server">
     <script type="text/javascript">
+
         //var locations = [
         //    ['Atlantis', 35.7022077, 139.2722703],
         //    ['iets', 35.2022077, 139.7722703],

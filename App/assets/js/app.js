@@ -70,7 +70,7 @@ $(document).ready(function () {
 
             for (i = 0; i < locations.length; i++) {
                 marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    position: new google.maps.LatLng(locations[i][2], locations[i][3]),
                     animation: google.maps.Animation.DROP,
                     icon: '../assets/img/markerblue.png',
                     map: map
