@@ -18,7 +18,6 @@
             type: "GET",
             url: url,
             dataType: 'json',
-            contentType: 'application/json',
 
             success: function (data) {
 
