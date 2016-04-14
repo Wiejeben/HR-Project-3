@@ -13,6 +13,7 @@ public class Theft
     public string ObjectName;
     public Street Street;
     public DateTime Date;
+    public int Total;
 
     public Theft()
     {
@@ -26,7 +27,7 @@ public class Theft
         // Bind the field & value.
         db.bind("street_id", id.ToString());
         // Place the row with the query results in a variable.
-        DataTable results = db.query("SELECT `name`, `date` FROM `Theft` as t LEFT JOIN `Object` as o ON t.object_id = o.object_id WHERE `street_id` = @street_id");
+        DataTable results = db.query("SELECT `name`, COUNT(o.object_id) as `total` FROM `Theft` as t LEFT JOIN `Object` as o ON t.object_id = o.object_id WHERE `street_id` = @street_id GROUP BY `name`");
 
         db.CloseConn();
 
@@ -41,10 +42,9 @@ public class Theft
         foreach (DataRow row in data.Rows)
         {
             Theft robbery = new Theft();
-
+            
             robbery.ObjectName = (string)row["name"];
-            robbery.Date = (DateTime)row["date"];
-
+            robbery.Total = Convert.ToInt32(row["total"]);
             results.Add(robbery);
         }
 

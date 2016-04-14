@@ -19,6 +19,7 @@ public partial class StreetLocation : System.Web.UI.Page
     protected bool Exists;
     protected string Timespan;
     protected double Distance;
+    protected List<Theft> Robberies;
 
     // Variables that are used in methods.
     protected int attemptedId;
@@ -58,7 +59,8 @@ public partial class StreetLocation : System.Web.UI.Page
                     Exists = foundStreet.Exists;
                     Timespan = foundStreet.Timespan;
                     Distance = Actions.getDistance(foundStreet.Pos, new Vector2(51.919980, 4.479993));
-
+                    Robberies = foundStreet.Robberies;
+                    
                     Page.Title = foundStreet.Name;
 
                     return;

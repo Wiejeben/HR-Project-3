@@ -49,6 +49,32 @@
                 <%--<p><%: sb %></p>--%>
                 <p><%: String.IsNullOrEmpty(Content) ? Intro : Content %></p>
             </div>
+            <div class="crimes">
+                
+                <% 
+                    if (Robberies.Count > 0)
+                    {
+                        %>
+                            <h2>Crime index</h2>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>Object</td>
+                                        <td>Gestolen hoeveelheid</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                    foreach (Theft robbery in Robberies){ %>
+                                        <tr><td><%=robbery.ObjectName %></td><td><%=robbery.Total %></td></tr>
+                                    <%
+                                    }
+                                    %>
+                               </tbody>             
+                       </table><%
+                    } 
+                %>
+            </div>
         </div>
     </div>
 </asp:Content>
