@@ -27,9 +27,11 @@ $(document).ready(function () {
     if ($('#map').length && typeof center !== "undefined")
     {
         function initialize() {
+            var rotterdam_cords = [51.919980, 4.479993];
+
             //wordt for-loop voor list met coordinaten uit DB op basis van query.
             var map_center = new google.maps.LatLng(center[1], center[2]);
-            var rotterdam_center = new google.maps.LatLng(51.919980, 4.479993);
+            var rotterdam_center = new google.maps.LatLng(rotterdam_cords[0], rotterdam_cords[1]);
 
             //constant
             var mapOptions = {
@@ -88,7 +90,7 @@ $(document).ready(function () {
             
             var lineToCentrumCoordinates = [
                 { lat: center[1], lng: center[2] },
-                { lat: centrumRotterdamLat, lng: centrumRotterdamLng }
+                { lat: rotterdam_cords[0], lng: rotterdam_cords[1] }
             ];
 
             var lineToCentrum = new google.maps.Polyline({
