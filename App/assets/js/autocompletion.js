@@ -26,7 +26,7 @@
 
                 // Fill in new results
                 $.each(data, function (index, element) {
-                    $(dropdown).append('<div class="result">' + element + '</div>');
+                    $(dropdown).append('<div class="result" data-id="' + element.ID + '">' + element.Name + '</div>');
                 });
 
             },
@@ -42,10 +42,5 @@
 });
 
 $('.search_dropdown').on("click", '.result', function () {
-    var searchf = $('.search_ac');
-    var selected = $(this).text();
-
-    searchf.val(selected);
-    $("#search_func").submit();
-
+    window.location.href = '/Street.aspx?hid=' + $(this).data('id');
 });
