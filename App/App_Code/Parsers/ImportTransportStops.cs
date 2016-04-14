@@ -22,7 +22,7 @@ public class ImportTransportStops : Import
 
             // Clear DB
             Db db = new Db();
-            db.query("DELETE FROM `transportstops`;");
+            db.query("DELETE FROM `Public_Transport`;");
             db.CloseConn();
 
             // Upload to database

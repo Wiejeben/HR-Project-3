@@ -67,14 +67,14 @@ $(document).ready(function () {
 
             //// Markers OV haltes
             var infowindow = new google.maps.InfoWindow({});
-
-            for (i = 0; i < locations.length; i++) {
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(locations[i][2], locations[i][3]),
-                    animation: google.maps.Animation.DROP,
-                    icon: '../assets/img/markerblue.png',
-                    map: map
-                });
+            if (typeof locations !== "undefined") {
+                for (i = 0; i < locations.length; i++) {
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(locations[i][2], locations[i][3]),
+                        animation: google.maps.Animation.DROP,
+                        icon: '../assets/img/markerblue.png',
+                        map: map
+                    });
 
                     google.maps.event.addListener(marker, 'click', (function (marker, i) {
                         return function () {

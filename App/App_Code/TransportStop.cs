@@ -74,7 +74,8 @@ public class TransportStop : Location
         Db db = new Db();
 
         // Place the row with the query results in a variable.
-        string[] attemptedTransportStop = db.row("SELECT * FROM `Public_Transport` WHERE `transport_name` = @transport_name");
+        db.qBind(new string[] { name });
+        string[] attemptedTransportStop = db.row("SELECT * FROM `Public_Transport` WHERE `transport_name` = @0");
         // We have a result
         if (attemptedTransportStop[0] != null)
         {
