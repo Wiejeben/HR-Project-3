@@ -1,4 +1,7 @@
 ﻿$(".search_ac").on("input", function () {
+    // Empty onchange
+    $('.result').remove();
+
     // Input variables
     var searchf = $(this);
     var searchp = $(searchf).parent('form');
@@ -9,9 +12,6 @@
     // Variables for the ajax call
     var url = "Search.aspx/Find";
     var data = '{ "query": "' + search_query + '" }';
-
-    // Empty onchange
-    $('.result').remove();
     if (search_charcount > 2) {
 
         $.ajax({
@@ -25,6 +25,9 @@
                 if (data['d'] != null) {
                     streetNames = data['d'].replace(/\"/g, "").replace(/\[/g, "").replace(/\]/g, "");
                     streetArray = streetNames.split(',');
+
+                    // Empty onchange
+                    $('.result').remove();
 
                     $.each(streetArray, function (key, value) {
                         $(dropdown).append("<div class='result'>" + value + "</div>");
