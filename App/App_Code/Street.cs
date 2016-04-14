@@ -12,6 +12,7 @@ public class Street : Location
     public Vector2 Pos { get; set; }
     public bool Exists = false;
     public string Timespan;
+    public List<Theft> Robberies;
 
     public Street()
     {
@@ -101,6 +102,7 @@ public class Street : Location
     {
         // Variables to be used.
         Db db = new Db();
+        List<Theft> Robberies = new List<Theft>();
 
         // Bind the field & value.
         db.bind("street_id", id.ToString());
@@ -121,6 +123,9 @@ public class Street : Location
             street.Exists = Convert.ToBoolean(result[6]);
             street.Timespan = result[7];
 
+            Robberies = Theft.Get(id);
+            street.Robberies = Robberies;
+            
             return street;
         }
 
