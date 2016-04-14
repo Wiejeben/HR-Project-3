@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -9,6 +10,7 @@ public partial class StreetLocation : System.Web.UI.Page
 {
     // Variables that are used in all functionalities.
     protected int Id;
+
     protected string Name;
     protected string Intro;
     protected string Content;
@@ -17,13 +19,18 @@ public partial class StreetLocation : System.Web.UI.Page
     protected bool Exists;
     protected string Timespan;
     protected double Distance;
+    protected List<string> tempString = new List<string>();
+    protected StringBuilder sb;
 
     // Variables that are used in methods.
     protected int attemptedId;
+
     protected Street foundStreet;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        OV_ArrayGenerator();
+
         // Was there a parameter in the link?
         if (Request.QueryString != null && Request.QueryString.Count > 0)
         {
@@ -57,5 +64,20 @@ public partial class StreetLocation : System.Web.UI.Page
         }
 
         throw new HttpException(404, "");
+    }
+
+    protected void OV_ArrayGenerator()
+    {
+        tempString.Add("\'Atlantis\', 35.7022077, 139.2722703");
+        sb = new StringBuilder();
+        sb.Append("<script type=\"text / javascript\">");
+        sb.Append("var locations = new Array;");
+        foreach (string str in tempString)
+        {
+            sb.Append("locations.push(" + str + ");");
+        }
+        sb.Append("</script>");
+
+        ClientScript.RegisterStartupScript(this.GetType(), "csname1", sb.ToString());
     }
 }

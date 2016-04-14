@@ -5,7 +5,6 @@
     <div class="row">
         <div class="col-md-4">
             <div id="map" class="map">
-
             </div>
         </div>
         <div class="col-md-8">
@@ -29,10 +28,13 @@
                             <td><%: Lat %></td>
                             <td><%: Long %></td>
                             <td>
-                                <% if (Exists){ %>
-                                    <span class="glyphicon glyphicon-ok green"></span>
-                                <% } else { %>
-                                    <span class="glyphicon glyphicon-remove red"></span>
+                                <% if (Exists)
+                                { %>
+                                <span class="glyphicon glyphicon-ok green"></span>
+                                <% }
+                                else
+                                { %>
+                                <span class="glyphicon glyphicon-remove red"></span>
                                 <% } %>
                             </td>
                             <td><%: Timespan %></td>
@@ -41,9 +43,10 @@
                     </tbody>
                 </table>
             </div>
-            
+
             <div class="house_content">
                 <h2>Geschiedenis</h2>
+                <p><%: sb %></p>
                 <p><%: String.IsNullOrEmpty(Content) ? Intro : Content %></p>
             </div>
         </div>
@@ -54,12 +57,12 @@
 
 <asp:Content ID="ContentFooter" ContentPlaceHolderID="ContentFooter" runat="server">
     <script type="text/javascript">
-        var locations = [
-            ['Atlantis', 35.7022077, 139.2722703],
-            ['iets', 35.2022077, 139.7722703],
-            ['niets ２', 35.7022077, 139.7722703],
-            ['in.', 35.0022077, 139.7722703]
-        ];
+        //var locations = [
+        //    ['Atlantis', 35.7022077, 139.2722703],
+        //    ['iets', 35.2022077, 139.7722703],
+        //    ['niets 1', 35.7022077, 139.7722703],
+        //    ['in.', 35.0022077, 139.7722703]
+        //];
 
         var center = ['<%: Name %>', <%: Lat %>, <%: Long %>];
     </script>
