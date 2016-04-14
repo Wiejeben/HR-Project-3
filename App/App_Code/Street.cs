@@ -1,9 +1,9 @@
-﻿using System;
-using System.Data;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
-using MySql.Data.MySqlClient;
 
 public class Street : Location
 {
@@ -30,7 +30,7 @@ public class Street : Location
 
             street.ID = (int)row["street_id"];
             street.Name = (string)row["name"];
-    
+
             street.Intro = (string)row["intro"];
             street.Content = (string)row["content"];
 
@@ -45,7 +45,7 @@ public class Street : Location
 
     public bool Insert(Db db)
     {
-        db.qBind(new string[] { this.ID.ToString(), this.Name, this.Intro, this.Content, this.Pos.Y().ToString(), this.Pos.X().ToString(), Convert.ToInt32(this.Exists).ToString(), this.Timespan });
+        db.qBind(new string[] { this.ID.ToString(), this.Name, this.Intro, this.Content, this.Pos.Y.ToString(), this.Pos.X.ToString(), Convert.ToInt32(this.Exists).ToString(), this.Timespan });
         int affected = db.nQuery("INSERT INTO `Street` VALUES (@0, @1, @2, @3, @4, @5, @6, @7);");
 
         return (affected >= 1);
@@ -106,20 +106,20 @@ public class Street : Location
         db.bind("street_id", id.ToString());
         // Place the row with the query results in a variable.
         string[] result = db.row("SELECT * FROM `Street` WHERE `street_id` = @street_id");
-        
+
         // We have a result
-        if(result[0] != null)
+        if (result[0] != null)
         {
             Street street = new Street();
 
             // Set data onto the instance.
-            street.ID           = Int32.Parse(result[0]);
-            street.Name         = result[1];
-            street.Intro        = result[2];
-            street.Content      = result[3];
-            street.Pos          = new Vector2(Convert.ToDouble(result[4]), Convert.ToDouble(result[5]));
-            street.Exists       = Convert.ToBoolean(result[6]);
-            street.Timespan     = result[7];
+            street.ID = Int32.Parse(result[0]);
+            street.Name = result[1];
+            street.Intro = result[2];
+            street.Content = result[3];
+            street.Pos = new Vector2(Convert.ToDouble(result[4]), Convert.ToDouble(result[5]));
+            street.Exists = Convert.ToBoolean(result[6]);
+            street.Timespan = result[7];
 
             return street;
         }

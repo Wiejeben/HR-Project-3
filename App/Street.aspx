@@ -29,11 +29,11 @@
                             <td><%: Long %></td>
                             <td>
                                 <% if (Exists)
-                                { %>
+                                    { %>
                                 <span class="glyphicon glyphicon-ok green"></span>
                                 <% }
-                                else
-                                { %>
+                                    else
+                                    { %>
                                 <span class="glyphicon glyphicon-remove red"></span>
                                 <% } %>
                             </td>
@@ -46,7 +46,7 @@
 
             <div class="house_content">
                 <h2>Geschiedenis</h2>
-                <p><%: sb %></p>
+                <%--<p><%: sb %></p>--%>
                 <p><%: String.IsNullOrEmpty(Content) ? Intro : Content %></p>
             </div>
         </div>

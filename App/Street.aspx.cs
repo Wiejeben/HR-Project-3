@@ -19,13 +19,15 @@ public partial class StreetLocation : System.Web.UI.Page
     protected bool Exists;
     protected string Timespan;
     protected double Distance;
-    protected List<string> tempString = new List<string>();
-    protected StringBuilder sb;
 
     // Variables that are used in methods.
     protected int attemptedId;
 
     protected Street foundStreet;
+
+    protected List<string> tempString = new List<string>();
+    protected StringBuilder sb;
+    protected List<TransportStop> AllTS;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -50,8 +52,8 @@ public partial class StreetLocation : System.Web.UI.Page
                     Name = foundStreet.Name;
                     Intro = foundStreet.Intro;
                     Content = foundStreet.Content;
-                    Lat = foundStreet.Pos.X();
-                    Long = foundStreet.Pos.Y();
+                    Lat = foundStreet.Pos.X;
+                    Long = foundStreet.Pos.Y;
                     Exists = foundStreet.Exists;
                     Timespan = foundStreet.Timespan;
                     Distance = Actions.getDistance(foundStreet.Pos, new Vector2(51.919980, 4.479993));
@@ -68,7 +70,11 @@ public partial class StreetLocation : System.Web.UI.Page
 
     protected void OV_ArrayGenerator()
     {
-        tempString.Add("\'Atlantis\', 35.7022077, 139.2722703");
+        AllTS = TransportStop.All();
+        for (int i = 0; i < AllTS.Count; i++)
+        {
+            tempString.Add("\'" + AllTS[i].Name + "\', " + "\'" + AllTS[i].Description + "\', " + AllTS[i].Pos.X + ", " + AllTS[i].Pos.Y);
+        }
         sb = new StringBuilder();
         sb.Append("<script type=\"text / javascript\">");
         sb.Append("var locations = new Array;");

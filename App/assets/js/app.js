@@ -66,24 +66,22 @@ $(document).ready(function () {
             })(marker));
 
             //// Markers OV haltes
-            if (locations) {
-                var infowindow = new google.maps.InfoWindow({});
+            var infowindow = new google.maps.InfoWindow({});
 
-                for (i = 0; i < locations.length; i++) {
-                    marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                        animation: google.maps.Animation.DROP,
-                        icon: '../assets/img/markerblue.png',
-                        map: map
-                    });
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    animation: google.maps.Animation.DROP,
+                    icon: '../assets/img/markerblue.png',
+                    map: map
+                });
 
-                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                        return function () {
-                            infowindow.setContent(locations[i][0]);
-                            infowindow.open(map, marker);
-                        }
-                    })(marker, i));
-                }
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
             }
 
             var lineToCentrumCoordinates = [

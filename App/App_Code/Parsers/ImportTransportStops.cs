@@ -93,7 +93,7 @@ public class ImportTransportStops : Import
                             break;
 
                         case 1:
-                            transportstop.Descr = fields[i];
+                            transportstop.Description = fields[i];
                             break;
                     }
                 }
