@@ -67,11 +67,11 @@ $(document).ready(function () {
 
             // Markers OV haltes
             var infowindow = new google.maps.InfoWindow({});
+
             if (typeof locations !== "undefined") {
                 for (i = 0; i < locations.length; i++) {
                     marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(locations[i][2], locations[i][3]),
-                        animation: google.maps.Animation.DROP,
+                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                         icon: '../assets/img/markerblue.png',
                         map: map
                     });
