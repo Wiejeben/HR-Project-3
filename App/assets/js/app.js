@@ -37,7 +37,7 @@ $(document).ready(function () {
 
             map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-            //// Marker Street
+            // Marker Street
             var marker = new google.maps.Marker({
                 position: map_center,
                 animation: google.maps.Animation.DROP,
@@ -51,7 +51,7 @@ $(document).ready(function () {
                 }
             })(marker));
 
-            //// Marker Rotterdam Centrum
+            // Marker Rotterdam Centrum
             var marker = new google.maps.Marker({
                 position: rotterdam_center,
                 map: map,
@@ -65,7 +65,7 @@ $(document).ready(function () {
                 }
             })(marker));
 
-            //// Markers OV haltes
+            // Markers OV haltes
             var infowindow = new google.maps.InfoWindow({});
             if (typeof locations !== "undefined") {
                 for (i = 0; i < locations.length; i++) {
