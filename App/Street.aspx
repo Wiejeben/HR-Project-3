@@ -86,6 +86,8 @@
                         });
                     });
 
+                    var chartLegend = pieChart.generateLegend();
+                    $('.chart').append(chartLegend);
                 }
             });
         }
