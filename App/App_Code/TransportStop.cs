@@ -15,10 +15,19 @@ public class TransportStop : Location
     {
     }
 
-    public static List<TransportStop> All()
+    public static List<TransportStop> All(bool group = false)
     {
         Db db = new Db();
-        DataTable db_results = db.query("SELECT * FROM `Public_Transport`");
+        DataTable db_results = new DataTable();
+
+        if (group)
+        {
+            db_results = db.query("SELECT * FROM `Public_Transport` GROUP BY `stopname`");
+        }
+        else
+        {
+            db_results = db.query("SELECT * FROM `Public_Transport`");
+        }
 
         List<TransportStop> results = new List<TransportStop>();
 
@@ -36,8 +45,12 @@ public class TransportStop : Location
         return results;
     }
 
-    public bool Insert(Db db)
+    public double Distance(Vector2 location)
+    {
+        return Actions.getDistance(this.Pos, location);
+    }
 
+    public bool Insert(Db db)
     {
         db.qBind(new string[] { this.Name, this.Description, this.Pos.X.ToString(), this.Pos.Y.ToString() });
         int affected = db.nQuery("INSERT INTO `Public_Transport` VALUES (null, @0, @1, @2, @3);");
@@ -88,9 +101,7 @@ public class TransportStop : Location
 
             return foundTransportStop;
         }
-        else
-        {
-            return null;
-        }
+
+        return null;
     }
 }

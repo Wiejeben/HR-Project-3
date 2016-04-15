@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Web.Script.Serialization;
 using System.Web.UI.WebControls;
 
 public partial class StreetLocation : System.Web.UI.Page
@@ -20,6 +21,7 @@ public partial class StreetLocation : System.Web.UI.Page
     protected string Timespan;
     protected double Distance;
     protected List<Theft> Robberies;
+    protected string jsonRobberies;
 
     // Variables that are used in methods.
     protected int attemptedId;
@@ -29,7 +31,7 @@ public partial class StreetLocation : System.Web.UI.Page
     protected List<string> tempString = new List<string>();
     protected StringBuilder sb;
     protected string all;
-    protected List<TransportStop> AllTS;
+    protected List<TransportStop> TransportStops;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -60,7 +62,11 @@ public partial class StreetLocation : System.Web.UI.Page
                     Timespan = foundStreet.Timespan;
                     Distance = Actions.getDistance(foundStreet.Pos, new Vector2(51.919980, 4.479993));
                     Robberies = foundStreet.Robberies;
-                    
+
+                    // For the charts
+                    JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();                    
+                    jsonRobberies = jsonSerializer.Serialize(Robberies);
+
                     Page.Title = foundStreet.Name;
 
                     return;
@@ -73,21 +79,6 @@ public partial class StreetLocation : System.Web.UI.Page
 
     protected void OV_ArrayGenerator()
     {
-        AllTS = TransportStop.All();
-        for (int i = 0; i < AllTS.Count; i++)
-        {
-            tempString.Add("\'" + AllTS[i].Name + "\', " + "\'" + AllTS[i].Description + "\', " + AllTS[i].Pos.X + ", " + AllTS[i].Pos.Y);
-        }
-        sb = new StringBuilder();
-        //sb.Append("<script type=\"text / javascript\">");
-        sb.Append("var locations = new Array;");
-        foreach (string str in tempString)
-        {
-            sb.Append("locations.push(" + str + ");");
-        }
-        //sb.Append("</script>");
-        all = sb.ToString();
-
-        ClientScript.RegisterStartupScript(this.GetType(), "csname1", sb.ToString());
+        this.TransportStops = TransportStop.All(true);
     }
 }

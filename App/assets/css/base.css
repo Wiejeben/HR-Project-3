@@ -15,6 +15,18 @@
     color:#0ac251;
 }
 
+/* Piechart */
+.pie-legend {
+    list-style-type:none;
+}
+
+.pie-legend .pie-legend-icon {
+    width:10px;
+    height:10px;
+    display:inline-block;
+    margin-right:10px;
+}
+
 /* Autocomplete css */
 .search_dropdown {
     background:white;
