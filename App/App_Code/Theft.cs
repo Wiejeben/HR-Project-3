@@ -9,8 +9,8 @@ using System.Web;
 /// </summary>
 public class Theft
 {
-    public int ID;
-    public string ObjectName;
+    public int ID, Year, Amount;
+    public string ObjectName, Name;
     public Street Street;
     public DateTime Date;
     public int Total;
@@ -33,6 +33,28 @@ public class Theft
 
         return DataTableToObjects(results);
         
+    }
+
+    public static List<Theft> GetByYear()
+    {
+        Db db = new Db();
+        DataTable db_results = db.query("SELECT YEAR(`Theft`.`date`) AS `year`, `Object`.`name`, COUNT(*) AS `amount` FROM `Object` LEFT JOIN `Theft` ON `Theft`.`object_id` = `Object`.`object_id` GROUP BY `Object`.`object_id`, YEAR(`Theft`.`date`)");
+
+        List<Theft> results = new List<Theft>();
+
+        foreach (DataRow row in db_results.Rows)
+        {
+            Theft theft = new Theft();
+
+            theft.Year = (int)row[0];
+            theft.Name = (string)row[1];
+            theft.Amount = Convert.ToInt32(row[2]);
+
+            results.Add(theft);
+        }
+
+        db.CloseConn();
+        return results;
     }
 
     private static List<Theft> DataTableToObjects(DataTable data)
