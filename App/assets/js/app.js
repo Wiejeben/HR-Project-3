@@ -1,27 +1,4 @@
-﻿// Graph settings
-var randomScalingFactor = function () { return Math.round(Math.random() * 100) };
-
-var barChartData = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [
-        {
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
-        },
-        {
-            fillColor: "rgba(151,187,205,0.5)",
-            strokeColor: "rgba(151,187,205,0.8)",
-            highlightFill: "rgba(151,187,205,0.75)",
-            highlightStroke: "rgba(151,187,205,1)",
-            data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
-        }
-    ]
-}
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
     // Google Maps
     if ($('#map').length && typeof center !== "undefined") {
         function initialize() {
@@ -70,15 +47,21 @@ $(document).ready(function () {
 
             if (typeof locations !== "undefined") {
                 for (i = 0; i < locations.length; i++) {
+                    var location = locations[i];
+
                     marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                        position: new google.maps.LatLng(location[3], location[4]),
                         icon: '../assets/img/markerblue.png',
                         map: map
                     });
 
                     google.maps.event.addListener(marker, 'click', (function (marker, i) {
                         return function () {
-                            infowindow.setContent(locations[i][0]);
+                            var location = locations[i];
+
+                            var contents = "<strong>" + location[0] + "</strong><br>" + location[1] + "<br>Afstand: " + location[2] + " meter";
+
+                            infowindow.setContent(contents);
                             infowindow.open(map, marker);
                         }
                     })(marker, i));
@@ -114,11 +97,5 @@ $(document).ready(function () {
         google.maps.event.addDomListener(window, 'load', initialize);
     }
 
-    // Bar graph
-    if ($("#chart").length) {
-        var ctx = $("#chart").get(0).getContext("2d");
-        window.myBar = new Chart(ctx).Bar(barChartData, {
-            responsive: false
-        });
-    }
+    
 });
