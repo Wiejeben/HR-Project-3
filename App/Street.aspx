@@ -12,13 +12,13 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <td>#</td>
-                            <td>Naam</td>
-                            <td>Breedtegraad</td>
-                            <td>Lengtegraad</td>
-                            <td>Bestaat</td>
-                            <td>Tijdspanne</td>
-                            <td>Afstand tot centrum</td>
+                            <th>#</th>
+                            <th>Naam</th>
+                            <th>Breedtegraad</th>
+                            <th>Lengtegraad</th>
+                            <th>Bestaat</th>
+                            <th>Tijdspanne</th>
+                            <th>Afstand tot centrum</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,8 +59,8 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <td>Object</td>
-                                        <td>Gestolen hoeveelheid</td>
+                                        <th>Object</th>
+                                        <th>Gestolen hoeveelheid</th>
                                     </tr>
                                 </thead>
                                 <tbody>
