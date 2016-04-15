@@ -45,8 +45,12 @@ public class TransportStop : Location
         return results;
     }
 
-    public bool Insert(Db db)
+    public double Distance(Vector2 location)
+    {
+        return Actions.getDistance(this.Pos, location);
+    }
 
+    public bool Insert(Db db)
     {
         db.qBind(new string[] { this.Name, this.Description, this.Pos.X.ToString(), this.Pos.Y.ToString() });
         int affected = db.nQuery("INSERT INTO `Public_Transport` VALUES (null, @0, @1, @2, @3);");
@@ -97,9 +101,7 @@ public class TransportStop : Location
 
             return foundTransportStop;
         }
-        else
-        {
-            return null;
-        }
+
+        return null;
     }
 }

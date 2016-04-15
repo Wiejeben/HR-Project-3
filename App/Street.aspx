@@ -86,7 +86,7 @@
 
         var locations = [
             <% foreach (TransportStop Stop in TransportStops) { %>
-                ['<%: Stop.Name %>', <%: Stop.Pos.X %>, <%: Stop.Pos.Y %>],
+                ['<%: Stop.Name %>', '<%: Stop.Description %>', <%: Stop.Distance(new Vector2(Lat, Long)) %>, <%: Stop.Pos.X %>, <%: Stop.Pos.Y %>],
             <% } %>
         ];
 

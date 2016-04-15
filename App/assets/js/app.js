@@ -70,15 +70,21 @@ $(document).ready(function () {
 
             if (typeof locations !== "undefined") {
                 for (i = 0; i < locations.length; i++) {
+                    var location = locations[i];
+
                     marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                        position: new google.maps.LatLng(location[3], location[4]),
                         icon: '../assets/img/markerblue.png',
                         map: map
                     });
 
                     google.maps.event.addListener(marker, 'click', (function (marker, i) {
                         return function () {
-                            infowindow.setContent(locations[i][0]);
+                            var location = locations[i];
+
+                            var contents = "<strong>" + location[0] + "</strong><br>" + location[1] + "<br>Afstand: " + location[2] + " meter";
+
+                            infowindow.setContent(contents);
                             infowindow.open(map, marker);
                         }
                     })(marker, i));
