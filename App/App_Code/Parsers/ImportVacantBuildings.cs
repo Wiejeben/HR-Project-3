@@ -90,8 +90,18 @@ public class ImportVacantBuildings : Import
                     switch (i)
                     {
                         case 1:
-                            vacantbuilding.HouseNumber = Regex.Match(fields[i], @"\d+").ToString();
-                            vacantbuilding.Street = Street.Get(1);
+                            vacantbuilding.HouseNumber = fields[i].Split(' ').Last();
+                            string streetName = Regex.Replace(fields[i], vacantbuilding.HouseNumber, "");
+                            streetName = streetName.TrimStart();
+                            streetName = streetName.TrimEnd();
+                            try
+                            {
+                                vacantbuilding.Street = Street.Get(Street.Find(streetName)[0].ID);
+                            }
+                            catch
+                            {
+                                vacantbuilding.Street = Street.Get(1);
+                            }
                             break;
 
                         case 2:

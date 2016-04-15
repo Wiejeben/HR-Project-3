@@ -7,8 +7,10 @@ using System.Web.UI.WebControls;
 
 public partial class Charts : System.Web.UI.Page
 {
+    protected List<Theft> Thefts;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        this.Thefts = Theft.GetByYear();
     }
 }
