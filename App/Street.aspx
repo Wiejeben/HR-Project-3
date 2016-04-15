@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Street.aspx.cs" Inherits="StreetLocation" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
     <h1><%: Name %></h1>
     <div class="row">
         <div class="col-md-4">
@@ -50,30 +51,10 @@
                 <p><%: String.IsNullOrEmpty(Content) ? Intro : Content %></p>
             </div>
             <div class="crimes">
-                
-                <% 
-                    if (Robberies.Count > 0)
-                    {
-                        %>
-                            <h2>Crime index</h2>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Object</th>
-                                        <th>Gestolen hoeveelheid</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <%
-                                    foreach (Theft robbery in Robberies){ %>
-                                        <tr><td><%=robbery.ObjectName %></td><td><%=robbery.Total %></td></tr>
-                                    <%
-                                    }
-                                    %>
-                               </tbody>             
-                       </table><%
-                    } 
-                %>
+                <h2>Veiligheidsindex</h2>
+                <div class="chart">
+                    <canvas id="chart" height="450" width="600"></canvas>
+                </div>
             </div>
         </div>
     </div>
@@ -84,12 +65,35 @@
 <asp:Content ID="ContentFooter" ContentPlaceHolderID="ContentFooter" runat="server">
     <script type="text/javascript">
 
-        //var locations = [
-        //    ['Atlantis', 35.7022077, 139.2722703],
-        //    ['iets', 35.2022077, 139.7722703],
-        //    ['niets 1', 35.7022077, 139.7722703],
-        //    ['in.', 35.0022077, 139.7722703]
-        //];
+        var robberies = <%=jsonRobberies %>;
+
+        // If the json object isnt empty.
+        if(!$.isEmptyObject(robberies)){
+            // Required, else we don't have data to place in there in the foreach loop.
+            var data = [];
+            // Graphs
+            $(document).ready(function () {
+                // If there's a chart element, just in case.
+                if ($("#chart").length) {
+
+                    var ctx = $("#chart")[0].getContext("2d");
+                    pieChart = new Chart(ctx).Pie(data, {
+                        responsive: false
+                    });
+                    // Loop through robberies and add it to the piechart.
+                    $.each(robberies, function(index, value) {
+                        pieChart.addData({
+                            value: value.Total,
+                            label: value.ObjectName
+                        });
+                    });
+
+                }
+            });
+        }
+        else {
+            $('.chart').remove();
+        }
 
         var center = ['<%: Name %>', <%: Lat %>, <%: Long %>];
     </script>
