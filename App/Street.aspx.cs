@@ -31,7 +31,7 @@ public partial class StreetLocation : System.Web.UI.Page
     protected List<string> tempString = new List<string>();
     protected StringBuilder sb;
     protected string all;
-    protected List<TransportStop> AllTS;
+    protected List<TransportStop> TransportStops;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -79,21 +79,6 @@ public partial class StreetLocation : System.Web.UI.Page
 
     protected void OV_ArrayGenerator()
     {
-        AllTS = TransportStop.All();
-        for (int i = 0; i < AllTS.Count; i++)
-        {
-            tempString.Add("\'" + AllTS[i].Name + "\', " + "\'" + AllTS[i].Description + "\', " + AllTS[i].Pos.X + ", " + AllTS[i].Pos.Y);
-        }
-        sb = new StringBuilder();
-        //sb.Append("<script type=\"text / javascript\">");
-        sb.Append("var locations = new Array;");
-        foreach (string str in tempString)
-        {
-            sb.Append("locations.push(" + str + ");");
-        }
-        //sb.Append("</script>");
-        all = sb.ToString();
-
-        ClientScript.RegisterStartupScript(this.GetType(), "csname1", sb.ToString());
+        this.TransportStops = TransportStop.All(true);
     }
 }

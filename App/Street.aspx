@@ -64,9 +64,7 @@
 
 <asp:Content ID="ContentFooter" ContentPlaceHolderID="ContentFooter" runat="server">
     <script type="text/javascript">
-
         var robberies = <%=jsonRobberies %>;
-
         // If the json object isnt empty.
         if(!$.isEmptyObject(robberies)){
             // Required, else we don't have data to place in there in the foreach loop.
@@ -94,6 +92,12 @@
         else {
             $('.chart').remove();
         }
+
+        var locations = [
+            <% foreach (TransportStop Stop in TransportStops) { %>
+                ['<%: Stop.Name %>', <%: Stop.Pos.X %>, <%: Stop.Pos.Y %>],
+            <% } %>
+        ];
 
         var center = ['<%: Name %>', <%: Lat %>, <%: Long %>];
     </script>

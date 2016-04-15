@@ -15,10 +15,19 @@ public class TransportStop : Location
     {
     }
 
-    public static List<TransportStop> All()
+    public static List<TransportStop> All(bool group = false)
     {
         Db db = new Db();
-        DataTable db_results = db.query("SELECT * FROM `Public_Transport`");
+        DataTable db_results = new DataTable();
+
+        if (group)
+        {
+            db_results = db.query("SELECT * FROM `Public_Transport` GROUP BY `stopname`");
+        }
+        else
+        {
+            db_results = db.query("SELECT * FROM `Public_Transport`");
+        }
 
         List<TransportStop> results = new List<TransportStop>();
 
