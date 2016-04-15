@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Web.Script.Serialization;
 using System.Web.UI.WebControls;
 
 public partial class StreetLocation : System.Web.UI.Page
@@ -20,6 +21,7 @@ public partial class StreetLocation : System.Web.UI.Page
     protected string Timespan;
     protected double Distance;
     protected List<Theft> Robberies;
+    protected string jsonRobberies;
 
     // Variables that are used in methods.
     protected int attemptedId;
@@ -60,7 +62,11 @@ public partial class StreetLocation : System.Web.UI.Page
                     Timespan = foundStreet.Timespan;
                     Distance = Actions.getDistance(foundStreet.Pos, new Vector2(51.919980, 4.479993));
                     Robberies = foundStreet.Robberies;
-                    
+
+                    // For the charts
+                    JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();                    
+                    jsonRobberies = jsonSerializer.Serialize(Robberies);
+
                     Page.Title = foundStreet.Name;
 
                     return;
