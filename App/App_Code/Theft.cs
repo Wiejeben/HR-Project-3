@@ -54,7 +54,7 @@ public class Theft
     public static List<Theft> AllGroupedBy(string column)
     {
         Db db = new Db();
-        string query = "SELECT `Theft`.`theft_id`, `Object`.`name` AS `object_name`, `Theft`.`date`, `Street`.*, COUNT(`Street`.`street_id`) AS `amount` FROM `Theft` INNER JOIN `Object` ON `Theft`.`object_id` = `Object`.`object_id` INNER JOIN `Street` ON `Theft`.`street_id` = `Street`.`street_id` GROUP BY `Street`.`street_id`";
+        string query = "SELECT `Theft`.`theft_id`, `Object`.`name` AS `object_name`, `Theft`.`date`, `Street`.*, COUNT(`Street`.`street_id`) AS `amount` FROM `Theft` INNER JOIN `Object` ON `Theft`.`object_id` = `Object`.`object_id` INNER JOIN `Street` ON `Theft`.`street_id` = `Street`.`street_id` GROUP BY " + column;
         DataTable db_results = db.query(query);
 
         List<Theft> results = new List<Theft>();

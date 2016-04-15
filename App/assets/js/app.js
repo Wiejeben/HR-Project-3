@@ -1,4 +1,10 @@
 ﻿// Graph settings
+if (typeof thefts == "undefined" || typeof objects == "undefined")
+{
+    thefts = [];
+    objects = [];
+}
+
 var barChartData = {
     labels: objects,
     datasets: [

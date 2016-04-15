@@ -11,6 +11,6 @@ public partial class Heatmap : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Thefts = Theft.AllGroupedBy("name");
+        this.Thefts = Theft.AllGroupedBy("`Street`.`street_id`");
     }
 }
