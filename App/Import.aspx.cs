@@ -9,7 +9,6 @@ public partial class ImportPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
     }
 
     public void ButtonImport(object sender, EventArgs e)
@@ -21,8 +20,14 @@ public partial class ImportPage : System.Web.UI.Page
     {
         new ImportCrimes("assets/datasets/fietsdiefstallen.csv");
     }
+
     public void ButtonImportTr(object sender, EventArgs e)
     {
         new ImportTransportStops("assets/datasets/RET-haltebestand.csv");
+    }
+
+    public void ButtonImportVb(object sender, EventArgs e)
+    {
+        new ImportVacantBuildings("assets/datasets/BOG-potentielijst.csv");
     }
 }

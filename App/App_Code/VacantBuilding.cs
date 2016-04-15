@@ -1,4 +1,4 @@
-﻿/* using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,12 +7,11 @@ using System.Web;
 
 public class VacantBuilding
 {
-    public int HouseNumber;
+    public string HouseNumber;
     public Street Street;
 
     public string Type;
     public string Status;
-    public string Owner;
     public int Space;
     public float Rent;
 
@@ -31,11 +30,10 @@ public class VacantBuilding
         {
             VacantBuilding vacantbuilding = new VacantBuilding();
 
-            vacantbuilding.HouseNumber = (int)row["house_number"];
+            vacantbuilding.HouseNumber = (string)row["house_number"];
             vacantbuilding.Street = Street.Get((int)row["street_id"]);
             vacantbuilding.Type = (string)row["type"];
             vacantbuilding.Status = (string)row["status"];
-            vacantbuilding.Owner = (string)row["owner"];
             vacantbuilding.Space = (int)row["space"];
             vacantbuilding.Rent = (float)row["rent"];
 
@@ -49,9 +47,9 @@ public class VacantBuilding
     public bool Insert(Db db)
 
     {
-        db.qBind(new string[] { this.HouseNumber.ToString(), this.Street.ID.ToString(), this.Type,
-            this.Status, this.Owner, this.Space.ToString(), this.Rent.ToString() });
-        int affected = db.nQuery("INSERT INTO `Vacant_Building` VALUES (@0, @1, @2, @3, @4, @5, @6);");
+        db.qBind(new string[] { this.HouseNumber, this.Street.ID.ToString(), this.Type,
+            this.Status, this.Space.ToString(), this.Rent.ToString() });
+        int affected = db.nQuery("INSERT INTO `Vacant_Building` VALUES (@0, @1, @2, @3, @4, @5);");
 
         return (affected >= 1);
     }
@@ -68,11 +66,10 @@ public class VacantBuilding
         {
             VacantBuilding vacantbuilding = new VacantBuilding();
 
-            vacantbuilding.HouseNumber = (int)row["house_number"];
+            vacantbuilding.HouseNumber = (string)row["house_number"];
             vacantbuilding.Street = Street.Get((int)row["street_id"]);
             vacantbuilding.Type = (string)row["type"];
             vacantbuilding.Status = (string)row["status"];
-            vacantbuilding.Owner = (string)row["owner"];
             vacantbuilding.Space = (int)row["space"];
             vacantbuilding.Rent = (float)row["rent"];
 
@@ -83,24 +80,28 @@ public class VacantBuilding
         return results;
     }
 
-    public static VacantBuilding Get(string name)
+    public static VacantBuilding Get(int house_number, int street_id)
     {
         // Variables to be used.
         Db db = new Db();
 
         // Place the row with the query results in a variable.
-        string[] attemptedTransportStop = db.row("SELECT * FROM `Vacant_Building` WHERE `transport_name` = @transport_name");
+        db.qBind(new string[] { house_number.ToString(), street_id.ToString() });
+        string[] attemptedVacantBuilding = db.row("SELECT * FROM `Vacant_Building` WHERE `house_number` = @0 AND `street_id` = @1");
         // We have a result
-        if (attemptedTransportStop[0] != null)
+        if (attemptedVacantBuilding[0] != null)
         {
             VacantBuilding foundVacantBuilding = new VacantBuilding();
 
             // Set data onto the instance.
-            foundVacantBuilding.Name = attemptedTransportStop[0];
-            foundVacantBuilding.Description = attemptedTransportStop[1];
-            foundVacantBuilding.Pos = new Vector2(Convert.ToDouble(attemptedTransportStop[2]), Convert.ToDouble(attemptedTransportStop[3]));
+            foundVacantBuilding.HouseNumber = attemptedVacantBuilding[0];
+            foundVacantBuilding.Street = Street.Get(Convert.ToInt32(attemptedVacantBuilding[1]));
+            foundVacantBuilding.Type = attemptedVacantBuilding[2];
+            foundVacantBuilding.Status = attemptedVacantBuilding[3];
+            foundVacantBuilding.Space = Convert.ToInt32(attemptedVacantBuilding[4]);
+            foundVacantBuilding.Rent = (float)Convert.ToDouble(attemptedVacantBuilding[5]);
 
-            return foundTransportStop;
+            return foundVacantBuilding;
         }
         else
         {
@@ -108,4 +109,3 @@ public class VacantBuilding
         }
     }
 }
-*/

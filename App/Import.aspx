@@ -9,9 +9,10 @@
 <body>
     <form id="form1" runat="server">
         Careful!<br />
-        <asp:Button ID="Button1" runat="server" Text="Import streets" onClick="ButtonImport" /><br />
-        <asp:Button ID="Button2" runat="server" Text="Import bike theft" onClick="ButtonImportCrimes" /><br />
-        <asp:Button ID="Button3" runat="server" Text="Import tranport stops" onClick="ButtonImportTr" />
+        <asp:Button ID="Button1" runat="server" Text="Import streets" OnClick="ButtonImport" /><br />
+        <asp:Button ID="Button2" runat="server" Text="Import bike theft" OnClick="ButtonImportCrimes" /><br />
+        <asp:Button ID="Button3" runat="server" Text="Import tranport stops" OnClick="ButtonImportTr" /><br />
+        <asp:Button ID="Button4" runat="server" Text="Import vacant buildings" OnClick="ButtonImportVb" />
     </form>
 </body>
 </html>
