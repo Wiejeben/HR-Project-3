@@ -91,5 +91,7 @@
         ];
 
         var center = ['<%: Name %>', <%: Lat %>, <%: Long %>];
+
+
     </script>
 </asp:Content>

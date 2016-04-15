@@ -99,6 +99,17 @@ $(document).ready(function () {
             });
 
             lineToCentrum.setMap(map);
+
+            //Heatmap
+            heatmap = new google.maps.visualization.HeatmapLayer({
+                data: getPoints(),
+                map: map
+            });
+
+            // Heatmap data: 500 Points
+            function getPoints() {
+                return heatMapPoints;
+            }
         }
         google.maps.event.addDomListener(window, 'load', initialize);
     }

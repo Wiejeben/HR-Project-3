@@ -54,7 +54,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/Chart.min.js"></script>
     <asp:ContentPlaceHolder ID="ContentFooter" runat="server"></asp:ContentPlaceHolder>
