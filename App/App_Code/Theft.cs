@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -96,9 +96,9 @@ public class Theft
         {
             Theft theft = new Theft();
 
-            theft.Year = (int)row[0];
-            theft.Name = (string)row[1];
-            theft.Amount = Convert.ToInt32(row[2]);
+            theft.Date = new DateTime((int)row[0], 1, 1); ;
+            theft.ObjectName = (string)row[1];
+            theft.Total = Convert.ToInt32(row[2]);
 
             results.Add(theft);
         }

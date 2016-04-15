@@ -12,13 +12,13 @@
     <script type="text/javascript">
         var objects = [
             <% foreach (Theft Theft in Thefts) { %>
-                ['<%: Theft.Name %>'],
+                ['<%: Theft.ObjectName %>'],
             <% } %>
         ];
 
         var thefts = [
             <% foreach (Theft Theft in Thefts) { %>
-                ['<%: Theft.Year %>', <%: Theft.Amount %>],
+                [<%: Theft.Total %>],
             <% } %>
         ];
     </script>
