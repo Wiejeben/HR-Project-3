@@ -19,6 +19,72 @@ public class Theft
     {
     }
 
+    public static List<Theft> All()
+    {
+        Db db = new Db();
+        DataTable db_results = db.query("SELECT `Theft`.`theft_id`, `Object`.`name` AS `object_name`, `Theft`.`date`, `Street`.* FROM `Theft` INNER JOIN `Object` ON `Theft`.`object_id` = `Object`.`object_id` INNER JOIN `Street` ON `Theft`.`street_id` = `Street`.`street_id`;");
+
+        List<Theft> results = new List<Theft>();
+
+        foreach (DataRow row in db_results.Rows)
+        {
+            Theft theft = new Theft();
+
+            theft.ID                = (int)row["theft_id"];
+            theft.ObjectName        = (string)row["object_name"];
+
+            // Create street
+            theft.Street            = new Street();
+            theft.Street.Name       = (string)row["name"];
+            theft.Street.Intro      = (string)row["intro"];
+            theft.Street.Content    = (string)row["content"];
+            theft.Street.Pos        = new Vector2((double)row["lat"], (double)row["long"]);
+            theft.Street.Exists     = (bool)row["exists"];
+            theft.Street.Timespan   = (string)row["timespan"];
+
+            theft.Date = (DateTime)row["date"];
+
+            results.Add(theft);
+        }
+
+        db.CloseConn();
+        return results;
+    }
+
+    public static List<Theft> AllGroupedBy(string column)
+    {
+        Db db = new Db();
+        string query = "SELECT `Theft`.`theft_id`, `Object`.`name` AS `object_name`, `Theft`.`date`, `Street`.*, COUNT(`Street`.`street_id`) AS `amount` FROM `Theft` INNER JOIN `Object` ON `Theft`.`object_id` = `Object`.`object_id` INNER JOIN `Street` ON `Theft`.`street_id` = `Street`.`street_id` GROUP BY `Street`.`street_id`";
+        DataTable db_results = db.query(query);
+
+        List<Theft> results = new List<Theft>();
+
+        foreach (DataRow row in db_results.Rows)
+        {
+            Theft theft = new Theft();
+
+            theft.ID = Convert.ToInt32((uint)row["theft_id"]);
+            theft.ObjectName = (string)row["object_name"];
+
+            // Create street
+            theft.Street = new Street();
+            theft.Street.Name = (string)row["name"];
+            theft.Street.Intro = (string)row["intro"];
+            theft.Street.Content = (string)row["content"];
+            theft.Street.Pos = new Vector2((double)row["lat"], (double)row["long"]);
+            theft.Street.Exists = (bool)row["exists"];
+            theft.Street.Timespan = (string)row["timespan"];
+
+            theft.Date = (DateTime)row["date"];
+            theft.Total = Convert.ToInt32(row["amount"]);
+
+            results.Add(theft);
+        }
+
+        db.CloseConn();
+        return results;
+    }
+
     public static List<Theft> Get(int id)
     {
         // Variables to be used.

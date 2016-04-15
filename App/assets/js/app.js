@@ -85,17 +85,14 @@
 
             //Heatmap
             heatmap = new google.maps.visualization.HeatmapLayer({
-                data: getPoints(),
-                map: map
+                data: heatMapPoints,
+                maxIntensity: 100,
+                radius: 30
             });
-
-            // Heatmap data: 500 Points
-            function getPoints() {
-                return heatMapPoints;
-            }
+            heatmap.setMap(map);
         }
         google.maps.event.addDomListener(window, 'load', initialize);
     }
 
-    
+
 });
