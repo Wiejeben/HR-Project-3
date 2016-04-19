@@ -1,4 +1,40 @@
-﻿/* All pages */
+﻿/* Overwriting bootstrap */
+.navbar-inverse {
+    background-color: #15AF0D;
+    border-color: #15AF0D;
+}
+
+.navbar-inverse .navbar-nav > li > a,
+.navbar-inverse .navbar-brand {
+    color: #FFF;
+}
+
+.navbar-inverse .navbar-toggle {
+    background-color: #149E0D;
+    border-color: #15AF0D;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #FFF;
+}
+
+.navbar-inverse .navbar-toggle:hover .icon-bar,
+.navbar-inverse .navbar-toggle:focus .icon-bar {
+    background-color: #149E0D
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+    border-color: #149E0D;
+}
+
+a:hover,
+a:focus {
+    color: #15af0d;
+}
+
+/* All pages */
 .body-content {
     margin-top:80px;
 }
@@ -74,28 +110,31 @@
 /* Specific pages */
 
 .search_result {
-     margin:0 0 10px 0;
+    margin: 0 0 10px 0;
 }
 
 .search_container {
+    position:relative;
     width:100%;
     height:100%;
     border:1px solid #ddd;
     padding:30px 20px;
-    color:#000000;
+    color: #777;
     display:block;
     text-decoration:none;
     border-radius:6px;
-    position:relative;
+
+    background: #F4F4F4;
 }
 
 .search_container h2 {
-    margin:0;
+    margin: 0 0 5px 0;
 }
 
 .search_container .intro_text {
     display:block;
     padding:0 40px 0 0;
+    margin: 0;
 }
 
 .search_container .glyphicon {
@@ -111,7 +150,8 @@
     -o-transition: all 500ms ease-out 0.1s;
     transition: all 500ms ease-out 0.1s;
     text-decoration:none;
-    border-color:#000000;
+    border-color:#CCC;
+    color: initial;
 }
 
 .search_dropdown {
