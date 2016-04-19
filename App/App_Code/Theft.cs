@@ -88,7 +88,7 @@ public class Theft
     public static List<Theft> GetByYear()
     {
         Db db = new Db();
-        DataTable db_results = db.query("SELECT YEAR(`Theft`.`date`) AS `year`, `Object`.`name`, COUNT(*) AS `amount` FROM `Object` LEFT JOIN `Theft` ON `Theft`.`object_id` = `Object`.`object_id` GROUP BY `Object`.`object_id`, YEAR(`Theft`.`date`)");
+        DataTable db_results = db.query("SELECT YEAR(`Theft`.`date`) AS `year`, `Object`.`name`, COUNT(*) AS `amount` FROM `Object` LEFT JOIN `Theft` ON `Theft`.`object_id` = `Object`.`object_id` GROUP BY `Object`.`object_id`, YEAR(`Theft`.`date`) ORDER BY `amount` DESC");
 
         List<Theft> results = new List<Theft>();
 

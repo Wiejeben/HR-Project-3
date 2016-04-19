@@ -74,7 +74,7 @@
 
                     var ctx = $("#chart")[0].getContext("2d");
                     pieChart = new Chart(ctx).Pie(data, {
-                        responsive: false
+                        responsive: true
                     });
                     // Loop through robberies and add it to the piechart.
                     $.each(robberies, function(index, value) {

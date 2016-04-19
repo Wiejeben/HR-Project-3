@@ -204,6 +204,11 @@ input:focus {
     top:8px;
 }
 
+.row-align-vertical {
+    display: flex;
+    align-items: center;
+}
+
 /* Google Maps */
 #maps-heatmap {
     height: 500px;
