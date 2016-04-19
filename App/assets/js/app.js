@@ -84,6 +84,32 @@ function initializeStreetsMap() {
         }
     }
 
+    // Markers Vacant Buildings
+    var infowindow = new google.maps.InfoWindow({});
+
+    if (typeof houses !== "undefined") {
+        for (i = 0; i < houses.length; i++) {
+            var location = houses[i];
+
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(location[4], location[5]),
+                icon: '../assets/img/markergreen.png',
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    var location = houses[i];
+
+                    var contents = "<strong>" + location[0] + " " + location[1] + "</strong>" + "<br>Ruimte: " + location[2] + " m<sup>2</sup>" + "<br>Huur: &euro;" + location[3];
+
+                    infowindow.setContent(contents);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+    }
+
     var lineToCentrumCoordinates = [
         { lat: center[1], lng: center[2] },
         { lat: rotterdam_cords[0], lng: rotterdam_cords[1] }

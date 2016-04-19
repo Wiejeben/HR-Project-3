@@ -19,7 +19,7 @@ public class VacantBuilding
     {
     }
 
-    public List<VacantBuilding> All()
+    public static List<VacantBuilding> All()
     {
         Db db = new Db();
         DataTable db_results = db.query("SELECT * FROM `Vacant_Building`");

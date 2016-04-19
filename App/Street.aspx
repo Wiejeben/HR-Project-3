@@ -99,6 +99,12 @@
             <% } %>
         ];
 
+        var houses = [
+            <% foreach (VacantBuilding Building in VacantBuildings) { %>
+                ['<%: Building.Street.Name %>', '<%: Building.HouseNumber%>', '<%: Building.Space %>', '<%: Building.Rent %>', <%: Building.Street.Pos.X %>, <%: Building.Street.Pos.Y %>],
+            <% } %>
+        ];
+
         var center = ['<%: Name %>', <%: Lat %>, <%: Long %>];
 
 

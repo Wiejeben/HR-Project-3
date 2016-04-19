@@ -32,6 +32,7 @@ public partial class StreetLocation : System.Web.UI.Page
     protected StringBuilder sb;
     protected string all;
     protected List<TransportStop> TransportStops;
+    protected List<VacantBuilding> VacantBuildings;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -80,5 +81,6 @@ public partial class StreetLocation : System.Web.UI.Page
     protected void OV_ArrayGenerator()
     {
         this.TransportStops = TransportStop.All(true);
+        this.VacantBuildings = VacantBuilding.All();
     }
 }
