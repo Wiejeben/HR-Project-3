@@ -19,25 +19,25 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <section class="col-md-12">
             <%
                 if (results != null && results.Count > 0)
                 {
                     foreach (Street result in results)
                     { %>
-                        <div class="search_result">
+                        <article class="search_result">
                             <a href="/Street.aspx?hid=<%: result.ID %>" class="search_container">
                                 <h2><%: result.Name %></h2>
                                 <p class="intro_text"><%: result.Intro %></p>
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                             </a>
-                        </div>
+                        </article>
                 <%  
                     }
                 } else { %>
                     <h2>Er zijn geen resultaten gevonden.</h2>
                 <% } %>
-        </div>
+        </section>
     </div>
 </asp:Content>
 

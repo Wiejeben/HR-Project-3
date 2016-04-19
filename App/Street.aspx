@@ -4,11 +4,18 @@
 
     <h1><%: Name %></h1>
     <div class="row">
-        <div class="col-md-4">
+        <aside class="col-md-4">
             <div id="maps-street" class="map">
             </div>
-        </div>
-        <div class="col-md-8">
+
+            <% if(Robberies.Count() > 0) { %>
+            <h3>Veiligheidsindex</h3>
+            <div class="chart">
+                <canvas id="chart"></canvas>
+            </div>
+            <% } %>
+        </aside>
+        <main class="col-md-8">
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -29,14 +36,11 @@
                             <td><%: Lat %></td>
                             <td><%: Long %></td>
                             <td>
-                                <% if (Exists)
-                                    { %>
+                            <% if (Exists) { %>
                                 <span class="glyphicon glyphicon-ok green"></span>
-                                <% }
-                                    else
-                                    { %>
+                            <% } else{ %>
                                 <span class="glyphicon glyphicon-remove red"></span>
-                                <% } %>
+                            <% } %>
                             </td>
                             <td><%: Timespan %></td>
                             <td><%: Distance %> meter</td>
@@ -50,15 +54,7 @@
                 <%--<p><%: sb %></p>--%>
                 <p><%: String.IsNullOrEmpty(Content) ? Intro : Content %></p>
             </div>
-            <div class="crimes">
-                <% if(Robberies.Count() > 0) { %>
-                    <h2>Veiligheidsindex</h2>
-                    <div class="chart">
-                        <canvas id="chart" height="450" width="600"></canvas>
-                    </div>
-                <% } %>
-            </div>
-        </div>
+        </main>
     </div>
 </asp:Content>
 
