@@ -51,10 +51,12 @@
                 <p><%: String.IsNullOrEmpty(Content) ? Intro : Content %></p>
             </div>
             <div class="crimes">
-                <h2>Veiligheidsindex</h2>
-                <div class="chart">
-                    <canvas id="chart" height="450" width="600"></canvas>
-                </div>
+                <% if(Robberies.Count() > 0) { %>
+                    <h2>Veiligheidsindex</h2>
+                    <div class="chart">
+                        <canvas id="chart" height="450" width="600"></canvas>
+                    </div>
+                <% } %>
             </div>
         </div>
     </div>
