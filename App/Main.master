@@ -25,8 +25,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-left">
                     <li><a runat="server" href="~/">Home</a></li>
-                    <li><a runat="server" href="~/Charts.aspx">Charts</a></li>
-                    <li><a runat="server" href="~/Heatmap.aspx">Heatmap</a></li>
+                    <li><a runat="server" href="~/Heatmap.aspx">Visualisaties</a></li>
                 </ul>
                 <% if (Request.Url.PathAndQuery != "/Default.aspx" && Request.Url.PathAndQuery != "/Error.aspx"){ %>
                     <form class="navbar-form navbar-right" method="post" action="Default.aspx" role="search">

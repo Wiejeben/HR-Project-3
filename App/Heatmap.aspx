@@ -5,7 +5,7 @@
 	<div class="row row-align-vertical">
 		
 		<div class="col-md-6">
-	        <canvas id="chart"></canvas>	
+	        <canvas id="chart" class="chart-bars"></canvas>	
 		</div>
 
 		<div class="col-md-6">
