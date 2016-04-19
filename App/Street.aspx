@@ -5,7 +5,7 @@
     <h1><%: Name %></h1>
     <div class="row">
         <div class="col-md-4">
-            <div id="map" class="map">
+            <div id="maps-street" class="map">
             </div>
         </div>
         <div class="col-md-8">
