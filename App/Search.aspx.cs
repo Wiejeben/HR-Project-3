@@ -25,6 +25,7 @@ public partial class Search : System.Web.UI.Page
                 this.results = Street.Find(this.query);
 
                 Page.Title = this.query;
+                search_ac.Value = this.query;
             }
         }
     }
