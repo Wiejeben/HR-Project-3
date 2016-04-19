@@ -5,7 +5,7 @@
         <h1>Zoekresultaten voor de zoekterm: '<%: query %>'</h1>
         <div class="field_container">
             <form method="post" id="search_func" autocomplete="off" action="Default.aspx">
-                <input type="text" id="search_ac" runat="server" name="search" class="search_ac" placeholder="Vul een adres in..." autofocus="autofocus" />
+                <input id="search_ac" runat="server" name="search" class="search_ac" placeholder="Vul een adres in..." autofocus="autofocus" />
                 <div class="btn_container">
                     <button class="search_btn">
                         <span class="glyphicon glyphicon-search"></span>
