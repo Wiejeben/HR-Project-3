@@ -1,14 +1,16 @@
-﻿<%@ Page Title="Heatmap" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Heatmap.aspx.cs" Inherits="Heatmap" %>
+﻿<%@ Page Title="Heatmap" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Visualisaties.aspx.cs" Inherits="Visualisaties" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
 
-	<div class="row row-align-vertical">
+	<div class="row">
 		
-		<div class="col-md-6">
-	        <canvas id="chart" class="chart-bars"></canvas>	
+		<div class="col-md-6 col-xs-12">
+            <div class="chart">
+    	        <canvas id="chart" class="chart-bars"></canvas>	
+            </div>
 		</div>
 
-		<div class="col-md-6">
+		<div class="col-md-6 col-xs-12">
 			<div id="maps-heatmap"></div>	
 		</div>
 	</div>

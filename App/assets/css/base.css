@@ -56,11 +56,13 @@ input:focus {
 }
 
 /* Piechart */
-.pie-legend {
+.pie-legend,
+.bar-legend {
     list-style-type:none;
 }
 
-.pie-legend .pie-legend-icon {
+.pie-legend .pie-legend-icon,
+.bar-legend .bar-legend-icon {
     width:10px;
     height:10px;
     display:inline-block;

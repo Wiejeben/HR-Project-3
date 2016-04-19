@@ -188,6 +188,9 @@ $(document).ready(function () {
         window.myBar = new Chart(ctx).Bar(barChartData, {
             responsive: true
         });
+
+        var chartLegend = myBar.generateLegend();
+        $('.chart').append(chartLegend);
     }
 
 });

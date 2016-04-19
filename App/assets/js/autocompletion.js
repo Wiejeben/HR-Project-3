@@ -4,9 +4,9 @@
 
     // Input variables
     var searchf = $(this);
-    var searchp = $(searchf).parent('form');
-    var search_charcount = $(searchf).val().replace(/ /g, '').length;
-    var search_query = $(searchf).val();
+    var searchp = searchf.parent('form');
+    var search_charcount = searchf.val().replace(/ /g, '').length;
+    var search_query = searchf.val();
     var dropdown = $('.search_dropdown');
 
     // Variables for the ajax call
@@ -14,6 +14,7 @@
 
     if (search_charcount > 2) {
 
+        // Request search completion
         $.ajax({
             type: "GET",
             url: url,
@@ -31,11 +32,10 @@
 
             },
             error: function (data, status) {
-                alert("Error. " + status);
+                console.log("Autocompletion error:  " + status);
             }
         });
-    }
-    else {
+    } else {
         $(dropdown).find('p').addClass('hidden');
         $(dropdown).find('.result').remove();
     }
