@@ -67,7 +67,7 @@ function initializeStreetsMap() {
 
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(location[3], location[4]),
-                icon: '../assets/img/markerblue.png',
+                icon: '../assets/img/ret.png',
                 map: map
             });
 
