@@ -34,6 +34,10 @@ a:focus {
     color: #15af0d;
 }
 
+input:focus {
+    outline: none;
+}
+
 /* All pages */
 .body-content {
     margin-top:80px;
