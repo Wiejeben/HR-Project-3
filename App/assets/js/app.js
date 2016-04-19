@@ -182,10 +182,11 @@ $(document).ready(function () {
     }
 
     // Bar graph
-    if ($("#chart").length) {
+    if ($(".chart-bars").length) {
         var ctx = $("#chart").get(0).getContext("2d");
+
         window.myBar = new Chart(ctx).Bar(barChartData, {
-            responsive: false
+            responsive: true
         });
     }
 

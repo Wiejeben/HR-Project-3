@@ -8,7 +8,7 @@
             <div id="maps-street" class="map">
             </div>
 
-            <% if(Robberies.Count() > 0) { %>
+            <% if(Robberies.Count > 0) { %>
             <h3>Veiligheidsindex</h3>
             <div class="chart">
                 <canvas id="chart"></canvas>
@@ -74,7 +74,7 @@
 
                     var ctx = $("#chart")[0].getContext("2d");
                     pieChart = new Chart(ctx).Pie(data, {
-                        responsive: false
+                        responsive: true
                     });
                     // Loop through robberies and add it to the piechart.
                     $.each(robberies, function(index, value) {
