@@ -72,7 +72,7 @@ public class ImportVacantBuildings : Import
         List<VacantBuilding> results = new List<VacantBuilding>();
 
         parser.TextFieldType = FieldType.Delimited;
-        parser.SetDelimiters(",");
+        parser.SetDelimiters(";");
         int currentline = 0;
 
         while (!parser.EndOfData)
@@ -89,7 +89,7 @@ public class ImportVacantBuildings : Import
                 {
                     switch (i)
                     {
-                        case 1:
+                        case 0:
                             vacantbuilding.HouseNumber = fields[i].Split(' ').Last();
                             string streetName = Regex.Replace(fields[i], vacantbuilding.HouseNumber, "");
                             streetName = streetName.TrimStart();
@@ -104,15 +104,15 @@ public class ImportVacantBuildings : Import
                             }
                             break;
 
-                        case 2:
+                        case 1:
                             vacantbuilding.Type = fields[i];
                             break;
 
-                        case 4:
+                        case 3:
                             vacantbuilding.Status = fields[i];
                             break;
 
-                        case 6:
+                        case 5:
                             if (Regex.IsMatch(fields[i], @"^[a-zA-Z]+$") || fields[i].Contains("-")
                                 || fields[i].Contains(".") || fields[i].Contains("/"))
                             {
@@ -132,10 +132,10 @@ public class ImportVacantBuildings : Import
                             }
                             break;
 
-                        case 7:
+                        case 6:
                             fields[i] = fields[i].Replace("?", String.Empty);
                             fields[i] = fields[i].Replace(" ", String.Empty);
-                            fields[i] = fields[i].Replace(",", ".");
+                            fields[i] = fields[i].Replace(",", ";");
 
                             bool containsLetter = Regex.IsMatch(fields[i], "[A-Z]");
                             if (fields[i] == "" || containsLetter == false)
