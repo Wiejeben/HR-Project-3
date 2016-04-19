@@ -108,22 +108,32 @@ if (typeof thefts == "undefined" || typeof objects == "undefined")
 }
 
 var barChartData = {
-    labels: objects,
+    labels: [objects[0], objects[3], objects[6], objects[9], objects[12]],
     datasets: [
         {
+            label: "2011",
             fillColor: "rgba(220,220,220,0.5)",
             strokeColor: "rgba(220,220,220,0.8)",
             highlightFill: "rgba(220,220,220,0.75)",
             highlightStroke: "rgba(220,220,220,1)",
-            data: thefts
+            data: [thefts[0], thefts[3], thefts[6], thefts[9], thefts[12]]
         },
-        //{
-        //    fillColor: "rgba(151,187,205,0.5)",
-        //    strokeColor: "rgba(151,187,205,0.8)",
-        //    highlightFill: "rgba(151,187,205,0.75)",
-        //    highlightStroke: "rgba(151,187,205,1)",
-        //    data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
-        //}
+        {
+            label: "2012",
+            fillColor: "rgba(150,187,205,0.5)",
+            strokeColor: "rgba(150,187,205,0.8)",
+            highlightFill: "rgba(150,187,205,0.75)",
+            highlightStroke: "rgba(150,187,205,1)",
+            data: [thefts[1], thefts[4], thefts[7], thefts[10], thefts[13]]
+        },
+        {
+            label: "2013",
+            fillColor: "rgba(80,187,205,0.5)",
+            strokeColor: "rgba(80,187,205,0.8)",
+            highlightFill: "rgba(80,187,205,0.75)",
+            highlightStroke: "rgba(80,187,205,1)",
+            data: [thefts[2], thefts[5], thefts[8], thefts[11], thefts[14]]
+        }
     ]
 }
 
