@@ -221,3 +221,16 @@ input:focus {
     height:400px;
     border:1px solid #ddd;
 }
+
+/* Misc */
+.street-legend {
+    width: 100%;
+}
+
+.street-legend tr > td:first-child {
+    text-align: center;
+}
+
+.street-legend tr > td {
+    padding: 3px;
+}

@@ -8,6 +8,27 @@
             <div id="maps-street" class="map">
             </div>
 
+            <table border="1" class="street-legend">
+                <tr>
+                    <td><img src="/assets/img/markerred.png"></td>
+                    <td>Huidige straat</td>
+                </tr>
+                <tr>
+                    <td><img src="/assets/img/markerblue.png"></td>
+                    <td>Stadscentrum</td>
+                </tr>
+
+                <tr>
+                    <td><img src="/assets/img/ret.png"></td>
+                    <td>RET halte</td>
+                </tr>
+
+                <tr>
+                    <td><img src="/assets/img/markergreen.png"></td>
+                    <td>Laagstaand gebouw</td>
+                </tr>
+            </table>
+
             <% if(Robberies.Count > 0) { %>
             <h3>Veiligheidsindex</h3>
             <div class="chart">
