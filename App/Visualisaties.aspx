@@ -5,14 +5,14 @@
 	<div class="row">
 		
 		<div class="col-md-6 col-xs-12">
-            <h2>Staafgrafiek</h2>
+            <h2>Diefstallen</h2>
             <div class="chart">
     	        <canvas id="chart" class="chart-bars"></canvas>	
             </div>
 		</div>
 
 		<div class="col-md-6 col-xs-12">
-            <h2>Heatmap</h2>
+            <h2>Criminaliteit</h2>
 			<div id="maps-heatmap"></div>	
 		</div>
 	</div>
