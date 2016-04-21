@@ -25,7 +25,7 @@
 
                 <tr>
                     <td><img src="/assets/img/markergreen.png"></td>
-                    <td>Laagstaand gebouw</td>
+                    <td>Leegstaand gebouw</td>
                 </tr>
             </table>
 
